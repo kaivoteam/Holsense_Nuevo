@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @request.comment %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request.status %>
+</p>
+
+<p>
+  <strong>Mail requester:</strong>
+  <%= @request.mail_requester %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

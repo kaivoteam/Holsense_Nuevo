@@ -63,3 +63,8 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
 
 gem 'paperclip'
+
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'jquery-easing-rails'
+gem 'rails_admin_material'

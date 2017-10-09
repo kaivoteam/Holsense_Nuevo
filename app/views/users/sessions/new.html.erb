@@ -1,26 +1,135 @@
-<h2>Log in</h2>
+<!-- Terminar barra de navegacion -->
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
- <p><%= f.label :login %><br />
- <%= f.text_field :login %></p>
-  </div>
+              <div class="collapse navbar-collapse" id="example-navbar-primary">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="https://www.twitter.com/Hol_Sense"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/holsense"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/hol.sense/"><i class="fa fa-instagram"></i></a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <!--h1>Inicio sesión</h1-->
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
+  </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="main main-raised">
+    <div class="section section-full-screen section-signup" style=" background-size: cover; background-position: top center; padding-top: 20px;">
+      <div class="container">
+
+      <div class="row">
+        <div class="col-md-5"  style=" padding-top: 40px;">
+          <div class="card card-signup">
+            <div class="header header-primary text-center">
+                  <h4>Inicio Sesión</h4>
+            </div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f| %>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="material-icons">face</i>
+      </span>
+      <%= f.text_field :login, autofocus: true, class: "form-control is-empty", placeholder: "Usuario" %>
+      <span class="input-group-addon"> </span>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="material-icons">lock_outline</i>
+      </span>
+      <%= f.password_field :password, class: "form-control", placeholder: "Contraseña", autocomplete: "off" %>
+      <span class="material-input"> </span>
+    </div>
+
+    <%# if devise_mapping.rememberable? -%>
+      <!--div class="checkbox">
+        <label-->
+          <!--%= #f.check_box :remember_me, name: "optionsCheckboxes", class: "checkbox-material" %>
+          Recordarme
+        </label>
+      </div-->
+    <!--% #end -%-->
+
+    <div class="actions text-center" style="padding-top: 15px;">
+      <%= f.submit "Iniciar sesión", class: "btn btn-primary " %>
+    </div>
   </div>
 <% end %>
+</div>
 
-<%= render "users/shared/links" %>
+        <div class="col-md-7">
+        <!-- Carousel Card -->
+            <div class="card card-raised card-carousel">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <div class="carousel slide" data-ride="carousel">
+
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="/bg2.jpeg" alt="Awesome Image">
+                      <div class="carousel-caption">
+                        <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="/bg3.jpeg" alt="Awesome Image">
+                      <div class="carousel-caption">
+                        <h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="/bg4.jpeg" alt="Awesome Image">
+                      <div class="carousel-caption">
+                        <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- End Carousel Card -->
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="top: 30px;">
+            <blockquote>
+                <h5 class="section-subheading text-muted">HolSense es un sistema capaz de proyectar imágenes en 3D, para presentar el contenido de una forma nunca antes vista en una sala de clases.<br>Además, para un aprendizaje aún más íntegro, se añadirá la posibilidad de interactuar con estas proyecciones, generando así una experiencia asombrosa, dinámica e interactiva para cualquier usuario.</h5>
+            </blockquote>
+          </div>
+        </div>
+</div>
+<%#= render "users/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

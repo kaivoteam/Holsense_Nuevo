@@ -19,3 +19,25 @@
 //= require rails-ujs
 //= require toastr
 //= require_tree .
+
+
+
+/*global toastr*/
+toastr.options = {
+  "closeButton": true,
+  "closeHtml" : "<button><i class='icon-off'></i></button>",
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-center",
+  "preventDuplicates": false,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut",
+  "tapToDismiss" : false
+}

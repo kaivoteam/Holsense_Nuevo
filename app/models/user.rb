@@ -21,7 +21,7 @@ class User < ApplicationRecord
   before_validation { self.avatar.clear if self.delete_avatar == '1' }
 
 
-  belongs_to :school
+  belongs_to :school, optional: true
   has_many :requests
 
   #para login por nickname
@@ -69,8 +69,6 @@ class User < ApplicationRecord
       exclude_fields :last_sign_in_at
  		end
     edit do
-      exclude_fields :last_sign_in_at
-
       #elementos no necesarios
       exclude_fields :created_at
       exclude_fields :updated_at
@@ -80,6 +78,8 @@ class User < ApplicationRecord
       exclude_fields :current_sign_in_ip
       exclude_fields :last_sign_in_ip
       exclude_fields :last_sign_in_at
+      exclude_fields :school
+      exclude_fields :reset_password_sent_at
     end
   end
 

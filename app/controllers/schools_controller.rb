@@ -21,6 +21,11 @@ class SchoolsController < ApplicationController
   def edit
   end
 
+  # GET /schools/dash_utp
+  def dash_utp
+    @levels = Level.all
+  end
+
   # POST /schools
   # POST /schools.json
   def create

@@ -15,3 +15,14 @@
  *= require toastr
  *= require_tree .
  */
+
+.toast-top-center {
+	top: 20px;
+	margin: 0 auto;
+	left: 40%;
+  width: 100%;
+}
+
+#toast-container{
+  font-size: large;
+}

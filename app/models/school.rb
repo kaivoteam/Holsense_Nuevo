@@ -22,7 +22,7 @@ class School < ApplicationRecord
   attr_accessor :delete_avatar
   before_validation { self.avatar.clear if self.delete_avatar == '1' }
 
-   rails_admin do
+  rails_admin do
 	list do
 		exclude_fields :avatar
 	end

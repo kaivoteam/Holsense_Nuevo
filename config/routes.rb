@@ -1,7 +1,25 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
-	root to:"schools#index"
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
+
+  devise_scope :user do
+    authenticated :user do
+      root to: 'schools#index', as: :authenticated_root
+    end
+
+    root to: 'users/sessions#new', as: :unauthenticated_root
+  end
+
+  as :user do
+    get 'users/profile/:id', :to => 'users/registrations#show', :as => :profile
+  end
+
+  get "dash_utp", to: "schools#dash_utp"
+  
   resources :images
   resources :sections
   resources :subjects

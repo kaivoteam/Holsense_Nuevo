@@ -1,15 +1,7 @@
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li style="top: 30px; font-size: large;">
-            <% if current_user.superadmin_role? %>
-              <span> Gestor interno HolSense <%= current_user.nickname%></span>
-            <% elsif current_user.utp_role? %>
-              <span> Coordinador UTP <%= current_user.nickname%></span>
-            <% elsif current_user.teacher_role? %>
-              <span> Profesor <%= current_user.nickname%></span>
-            <% end -%>
-          </li>
-          <li class="dropdown">
+
+                  <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                   <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
                                   <b class="caret"></b>
@@ -32,12 +24,12 @@
                                   </li>
                                 </ul>
                               </li> 
-            
-        </ul>
-      </div>
-  </div>
+                </ul>
+
+    	</div>
+	</div>
 </nav>
-      
+	   	
 
 
 
@@ -47,7 +39,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="brandasd">
-            <h1>Cursos y asignaturas</h1>
+            <h1>Bienvenido coordinador UTP</h1>
           </div>
         </div>
       </div>
@@ -55,6 +47,7 @@
   </div>
   <div class="main main-raised">
     <div class="card card-nav-tabs">
+
               <div class="header header-info">
                 <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
 
@@ -64,7 +57,7 @@
 
                         <% @levels.each do |level| %>
                           <li class="col-md-2 text-center">
-                            <a href="#<%=level.id%>" data-toggle="tab">
+                            <a href="#dashboard" data-toggle="tab">
                               <i class="material-icons">dashboard</i>
                               <%=level.name%>
                             </a>
@@ -77,16 +70,24 @@
               </div>
               <div class="content">
                 <div class="tab-content text-center">
-                  <div class="tab-pane active" id="1">
-                    <p>Aquí estarán sus cursos disponibles </p>
+                  <div class="tab-pane active" id="profile">
+                    <p> Aquí podras administrar tus cursos y módulos </p>
                   </div>
-                  <div class="tab-pane" id="3">
+                  <div class="tab-pane" id="messages">
                     <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                  </div>
+                  <div class="tab-pane" id="settings">
+                    <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
                   </div>
                 </div>
               </div>
-            </div>     
-  
+            </div>
+
+    
+            
+
+
+          </div>
         </div>
       </div>
   </div>

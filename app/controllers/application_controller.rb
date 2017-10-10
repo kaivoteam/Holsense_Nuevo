@@ -21,4 +21,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: [:login,:password,:password_confirmation]
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def after_sign_in_path_for(resource_or_scope)
+    if current_user.superadmin_role?
+      rails_admin.dashboard_path  
+    elsif current_user.utp_role?
+      dash_utp_path
+    elsif current_user.teacher_role?
+      levels_path
+    end
+  end
 end

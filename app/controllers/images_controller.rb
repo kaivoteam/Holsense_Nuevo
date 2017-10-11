@@ -10,6 +10,10 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    print "La imagen que se mostrara sera la de: "
+    print @image.name
+    print "   la cual gira derecha? "
+    print @image.clock
   end
 
   # GET /images/new

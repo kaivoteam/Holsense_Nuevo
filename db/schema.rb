@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171008012847) do
   create_table "images", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.boolean "giro_derecha"
+    t.boolean "clock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "content_file_name"

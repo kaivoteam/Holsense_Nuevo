@@ -3,7 +3,7 @@ class CreateImages < ActiveRecord::Migration[5.1]
     create_table :images do |t|
       t.string :name
       t.text :description
-      t.boolean :giro_derecha
+      t.boolean :clock
 
       t.timestamps
     end

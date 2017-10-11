@@ -31,45 +31,6 @@
       <div class="container">
 
       <div class="row">
-        <div class="col-md-5"  style=" padding-top: 40px;">
-          <div class="card card-signup">
-            <div class="header header-primary text-center">
-                  <h4>Inicio Sesión</h4>
-            </div>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f| %>
-
-    <div class="input-group">
-      <span class="input-group-addon">
-        <i class="material-icons">face</i>
-      </span>
-      <%= f.text_field :login, autofocus: true, class: "form-control is-empty", placeholder: "Usuario" %>
-      <span class="input-group-addon"> </span>
-    </div>
-
-    <div class="input-group">
-      <span class="input-group-addon">
-        <i class="material-icons">lock_outline</i>
-      </span>
-      <%= f.password_field :password, class: "form-control", placeholder: "Contraseña", autocomplete: "off" %>
-      <span class="input-group-addon"> </span>
-    </div>
-
-    <%# if devise_mapping.rememberable? -%>
-      <!--div class="checkbox">
-        <label-->
-          <!--%= #f.check_box :remember_me, name: "optionsCheckboxes", class: "checkbox-material" %>
-          Recordarme
-        </label>
-      </div-->
-    <!--% #end -%-->
-
-    <div class="actions text-center" style="padding-top: 15px;">
-      <%= f.submit "Iniciar sesión", class: "btn btn-primary " %>
-    </div>
-  </div>
-<% end %>
-</div>
 
         <div class="col-md-7">
         <!-- Carousel Card -->
@@ -118,9 +79,50 @@
             </div>
             <!-- End Carousel Card -->
         </div>
+        <div class="col-md-5"  style=" padding-top: 40px;">
+          <div class="card card-signup">
+            <div class="header header-primary text-center">
+                  <h4>HolSense</h4>
+            </div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f| %>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="material-icons">face</i>
+      </span>
+      <%= f.text_field :login, autofocus: true, class: "form-control is-empty", placeholder: "Usuario" %>
+      <span class="input-group-addon"> </span>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="material-icons">lock_outline</i>
+      </span>
+      <%= f.password_field :password, class: "form-control", placeholder: "Contraseña", autocomplete: "off" %>
+      <span class="input-group-addon"> </span>
+    </div>
+
+    <%# if devise_mapping.rememberable? -%>
+      <!--div class="checkbox">
+        <label-->
+          <!--%= #f.check_box :remember_me, name: "optionsCheckboxes", class: "checkbox-material" %>
+          Recordarme
+        </label>
+      </div-->
+    <!--% #end -%-->
+
+    <div class="actions text-center" style="padding-top: 15px;">
+      <%= f.submit "Iniciar sesión", class: "btn btn-primary " %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+        
           <div class="col-md-12" style="top: 30px;">
             <blockquote>
-                <h5 class="section-subheading text-muted">HolSense es un sistema capaz de proyectar imágenes en 3D, para presentar el contenido de una forma nunca antes vista en una sala de clases.<br>Además, para un aprendizaje aún más íntegro, se añadirá la posibilidad de interactuar con estas proyecciones, generando así una experiencia asombrosa, dinámica e interactiva para cualquier usuario.</h5>
+                <strong><h6 class="section-subheading text-muted">HolSense es un sistema capaz de proyectar imágenes en 3D, para presentar el contenido de una forma nunca antes vista en una sala de clases.<br>Además, para un aprendizaje aún más íntegro, se añadirá la posibilidad de interactuar con estas proyecciones, generando así una experiencia asombrosa, dinámica e interactiva para cualquier usuario.</h6></strong>
             </blockquote>
           </div>
 

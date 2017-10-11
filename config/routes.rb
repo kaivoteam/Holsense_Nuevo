@@ -20,11 +20,15 @@ Rails.application.routes.draw do
 
   get "dash_utp", to: "schools#dash_utp"
   
-  resources :images
   resources :sections
   resources :subjects
   resources :levels
   resources :requests
   resources :schools
+  resources :images do
+    collection do
+      get :clean
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

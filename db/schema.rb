@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008012847) do
-
-  create_table "Images_Sections", id: false, force: :cascade do |t|
-    t.integer "Image_id", null: false
-    t.integer "Section_id", null: false
-  end
+ActiveRecord::Schema.define(version: 20171011222728) do
 
   create_table "images", force: :cascade do |t|
     t.string "name"
@@ -27,6 +22,15 @@ ActiveRecord::Schema.define(version: 20171008012847) do
     t.string "content_content_type"
     t.integer "content_file_size"
     t.datetime "content_updated_at"
+    t.integer "Images_Sections_id"
+    t.index ["Images_Sections_id"], name: "index_images_on_Images_Sections_id"
+  end
+
+  create_table "images_sections", id: false, force: :cascade do |t|
+    t.integer "image_id", null: false
+    t.integer "section_id", null: false
+    t.index ["image_id", "section_id"], name: "index_images_sections_on_image_id_and_section_id"
+    t.index ["section_id", "image_id"], name: "index_images_sections_on_section_id_and_image_id"
   end
 
   create_table "levels", force: :cascade do |t|
@@ -69,6 +73,8 @@ ActiveRecord::Schema.define(version: 20171008012847) do
     t.datetime "updated_at", null: false
     t.integer "level_id"
     t.integer "subject_id"
+    t.integer "Images_Sections_id"
+    t.index ["Images_Sections_id"], name: "index_sections_on_Images_Sections_id"
     t.index ["level_id"], name: "index_sections_on_level_id"
     t.index ["subject_id"], name: "index_sections_on_subject_id"
   end

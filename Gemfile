@@ -68,3 +68,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jquery-easing-rails'
 gem 'rails_admin_material'
+
+gem 'win32-process' if Gem.win_platform?
+gem 'os'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?

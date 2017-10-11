@@ -10,7 +10,7 @@ class Image < ApplicationRecord
     validates_attachment_content_type :content, :content_type => ["image/gif"]
   
 
-	has_and_belongs_to_many :sections
+	has_and_belongs_to_many :sections, through: :images_sections
 
 	validates :name, presence: true
 	validates :description, presence: true

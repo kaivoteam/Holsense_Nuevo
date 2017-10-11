@@ -1,14 +1,87 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li style="top: 30px; font-size: large;">
+              <span> Profesor <%= current_user.nickname%></span>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% if current_user.superadmin_role? %>
+                <li>
+                  <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                </li>
+                <li class="divider"></li>
+              <% else %>
+                <li><a href="#">Ver Perfil</a>
+                </li>
+                <li>
+                  <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                </li>
+              <% end %>
+              <li>
+                <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li> 
+            
+        </ul>
+      </div>
+  </div>
+</nav>
+      
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="card card-nav-tabs">
+              <div class="header header-info">
+
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                    	<center>
+                    	<h2>Proyectando <%= @image.name %> </h2></center>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" id="1">
+              	    <p>
+					  <strong>Nombre:</strong>
+					  <%= @image.name %>
+					</p>
+
+					<p>
+					  <strong>Descripción:</strong>
+					  <%= @image.description %>
+					</p>
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+             <div class="actions text-center" style="padding-top: 15px;">
+      			<%= button_to 'Reset', clean_images_path, :method=>:get, :remote => true, :class => "btn btn-primary"  %>
+   			 </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
 
 <p>
   <strong>Clock:</strong>

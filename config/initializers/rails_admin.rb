@@ -80,6 +80,9 @@ RailsAdmin.config do |config|
     field :direction do
       label 'Dirección' # Change the label of this field
     end
+    field :email do
+      label 'Correo electrónico' # Change the label of this field
+    end
     field :avatar, :paperclip do
       label 'Imagen de colegio'
      # jcrop_options aspectRatio: 140.00/90.0
@@ -180,6 +183,10 @@ RailsAdmin.config do |config|
     field :subject do
       label 'Asignatura' # Change the label of this field
     end
+
+    field :level do
+      label 'Curso' # Change the label of this field
+    end
     object_label_method do
       :custom_label_method
     end
@@ -206,6 +213,9 @@ RailsAdmin.config do |config|
     field :user do
       label 'Usuario' # Change the label of this field
     end
+    field :mail_requester do
+      label 'Mail del responsable' # Change the label of this field
+    end
     object_label_method do
       :custom_label_method
     end
@@ -214,6 +224,38 @@ RailsAdmin.config do |config|
   Request.class_eval do
     def custom_label_method
       "#{self.id}"
+    end
+  end
+
+  config.model 'Image' do
+    label 'Contenido' # Change the label of this model class
+    label_plural 'Contenidos'
+    field :name do
+      label 'Nombre' # Change the label of this field
+    end
+    field :description do
+      label 'Descripción' # Change the label of this field
+    end
+    field :clock do
+      label 'Giro derecha' # Change the label of this field
+    end
+    field :content, :paperclip do
+      label 'Imagen Gif'
+     # jcrop_options aspectRatio: 140.00/90.0
+     # fit_image true
+      delete_method :delete_avatar
+    end
+    field :sections do
+      label 'Secciones asociadas' # Change the label of this field
+    end
+    object_label_method do
+      :custom_label_method
+    end
+  end
+
+  Image.class_eval do
+    def custom_label_method
+      "#{self.name}"
     end
   end
 end

@@ -243,7 +243,7 @@ RailsAdmin.config do |config|
       label 'Imagen Gif'
      # jcrop_options aspectRatio: 140.00/90.0
      # fit_image true
-      delete_method :delete_avatar
+     # delete_method :delete_content
     end
     field :sections do
       label 'Secciones asociadas' # Change the label of this field

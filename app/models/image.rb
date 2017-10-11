@@ -19,9 +19,9 @@ class Image < ApplicationRecord
   validates_presence_of :description
   validates_presence_of :name
 
-     rails_admin do
-	list do
-		exclude_fields :content
-	end
-   end
+  rails_admin do
+  	list do
+  		exclude_fields :content
+  	end
+  end
 end

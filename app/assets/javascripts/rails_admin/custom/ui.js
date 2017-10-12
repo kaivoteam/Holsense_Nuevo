@@ -34,7 +34,7 @@ $('#user_utp_role').on('change', function () {
 $('#user_teacher_role').on('change', function () {
 	if (this.checked) {
         $('#user_utp_role,#user_superadmin_role').attr('disabled', true);
-        $('#user_school_id_field').hide();
+        $('#user_school_id_field').show();
     }
     else{
     	$('#user_utp_role,#user_superadmin_role').attr('disabled', false);

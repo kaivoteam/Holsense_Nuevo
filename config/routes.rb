@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root to: 'schools#index', as: :authenticated_root
+      root to: 'levels#index', as: :authenticated_root
     end
 
     root to: 'users/sessions#new', as: :unauthenticated_root
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get "dash_utp", to: "schools#dash_utp"
   
-  root to: 'schools#index'
+  root to: 'users/sessions#new'
   
   resources :sections
   resources :subjects

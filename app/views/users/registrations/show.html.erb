@@ -46,7 +46,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="brandasd">
-            <h1>Editar <%= current_user.nickname %></h1>
+            <h1>Ver Perfil </h1>
           </div>
         </div>
       </div>
@@ -59,57 +59,41 @@
 
       <div class="row">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true  }) do |f| %>
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2 ">
+          <%= image_tag current_user.avatar.url(:medium), class: "img-circle img-raised img-responsive center-block" %>
+        </div>
 
-  <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-    <%= devise_error_messages! %>
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2  ">
+            <h2><span class="label label-primary">Nombre</span></h2>
+          <div class="input-group text-center">
+            <h1><%= @user.nickname%></h1>
+            <span class="input-group-addon"> </span>
+          </div>
+        </div>
+
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2  ">
+            <h2><span class="label label-primary">Email</span></h2>
+          <div class="input-group text-center">
+            <h1><%= @user.email%></h1>
+            <span class="input-group-addon"> </span>
+          </div>
+        </div>
+
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2  ">
+            <h2><span class="label label-primary">Tipo de usuario</span></h2>
+          <div class="input-group text-center">
+            <h1><% if @user.superadmin_role? %>
+                Gestor interno
+              <% elsif @user.utp_role? %>
+                Coordinador UTP
+              <% else %>          
+                Profesor
+              <% end %>
+            </h1>
+            <span class="input-group-addon"> </span>
+          </div>
+        </div>  
   </div>
-
-  <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-    <div class="input-group">
-      <span class="label label-primary">Email</span>
-      <%= f.email_field :email, autofocus: true, class: "form-control is-empty"%>
-      <span class="input-group-addon"> </span>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Actualemente esperando confirmación para: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="input-group">
-      <span class="label label-primary">Contraseña      </span>
-      <% if @minimum_password_length %>
-        <p><%= @minimum_password_length %> caracteres mínimos</p>
-      <% end %>
-      <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
-      <span class="material-input"> </span>
-    </div>
-
-    <div class="input-group">
-      <span class="label label-primary">Confirmación de contraseña</span>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-      <span class="material-input"> </span>
-    </div>
-
-    <div class="input-group">
-      <span class="label label-primary">Contraseña actual</span>
-      <p>necesitamos tu contraseña actual para confirmar los cambios</p>
-      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-      <span class="material-input"> </span>
-    </div>
-
-
-    <div class="input-group">
-      <span class="label label-primary">Foto de perfil</span>
-      <%= f.file_field :avatar, class: "btn btn-white"  %>
-      <span class="material-input"> </span>
-    </div>
-
-    <div class="actions text-center">
-      <%= f.submit "Actualizar", class: "btn btn-primary " %>
-    </div>
-  </div>
-<% end %>
 
 <%#= render "users/shared/links" %>
           </div>

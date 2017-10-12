@@ -5,6 +5,30 @@ class RequestsController < ApplicationController
   # GET /requests.json
   def index
     @requests = Request.all
+
+    @levels = Level.all.order(:name)
+    subjects = Subject.all.order(:name)
+    modules = Section.all
+
+    @results = Hash.new 
+
+    @levels.each do |level|
+      asd = Hash.new
+      subjects.each do |subject|
+        asdasd = []
+        modules.each do |mod|
+          if mod.level_id == level.id and mod.subject_id == subject.id
+            asdasd.append(mod)
+          end
+        end
+        if !asdasd.empty?
+          asd[subject] = asdasd
+        end
+      end
+      if !asd.empty?
+        @results[level] = asd
+      end
+    end
   end
 
   # GET /requests/1

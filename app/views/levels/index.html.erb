@@ -2,11 +2,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li style="top: 30px; font-size: large;">
             <% if current_user.superadmin_role? %>
-              <span> Gestor interno HolSense <%= current_user.nickname%></span>
+              <span> Gestor interno </span>
             <% elsif current_user.utp_role? %>
-              <span> Coordinador UTP <%= current_user.nickname%></span>
+              <span> Coordinador UTP </span>
             <% elsif current_user.teacher_role? %>
-              <span> Profesor <%= current_user.nickname%></span>
+              <span> Profesor </span>
             <% end -%>
           </li>
           <li class="dropdown">
@@ -21,7 +21,8 @@
                                     </li>
                                     <li class="divider"></li>
                                   <% else %>
-                                    <li><a href="#">Ver Perfil</a>
+                                    <li>
+                                      <%= link_to "Ver perfil", profile_path(current_user)%>
                                     </li>
                                     <li>
                                       <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
@@ -77,17 +78,35 @@
               </div>
               <div class="content">
                 <div class="tab-content text-center">
-                  <div class="tab-pane active" id="1">
-                    <p>Aquí estarán sus cursos disponibles </p>
+                  <div class="tab-pane active" >
+                    Presione en la barra superior, en los niveles que desea ver sus asignatiras y secciones.
                   </div>
-                  <div class="tab-pane" id="3">
-                    <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
-                  </div>
-                </div>
+                  <% @results.each do |level, value| %>
+
+                    <div class="tab-pane" id=<%=level.id%>>
+                          <% value.each do |subject, sections| %>
+                        <div class="row">
+                          <div class="col-md-offset-1 col-md-11 subject">
+                            <h3 class="subject"><%= subject.name %></h3>
+                          </div>
+                          <% sections.each do |section| %>
+                          <div class="col-md-offset-2 col-md-10 subject">
+                            <%= button_to section.name, section_path(section), class: "btn btn-primary", method: :get  %>
+                          </div>
+                          <% end %> 
+
+                        </div>
+                          <% end %> 
+                    </div>
+                  <% end %>
               </div>
             </div>     
   
         </div>
       </div>
+    </div>
+
+
+      <!--/div>
   </div>
-</div>
+</div-->

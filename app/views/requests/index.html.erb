@@ -1,3 +1,125 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li style="top: 30px; font-size: large;">
+            <% if current_user.superadmin_role? %>
+              <span> Gestor interno </span>
+            <% elsif current_user.utp_role? %>
+              <span> Coordinador UTP </span>
+            <% elsif current_user.teacher_role? %>
+              <span> Profesor </span>
+            <% end -%>
+          </li>
+          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+                                  <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <% if current_user.superadmin_role? %>
+                                    <li>
+                                      <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                                    </li>
+                                    <li class="divider"></li>
+                                  <% else %>
+                                    <li><a href="#">Ver Perfil</a>
+                                    </li>
+                                    <li>
+                                      <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                                    </li>
+                                  <% end %>
+                                  <li>
+                                    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+                                  </li>
+                                </ul>
+                              </li> 
+            
+        </ul>
+      </div>
+  </div>
+</nav>
+      
+
+
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1>Módulos disponibles</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="card card-nav-tabs">
+              <div class="header header-info">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+
+                        <% @levels.each do |level| %>
+                          <li class="col-md-2 text-center">
+                            <a href="#<%=level.id%>" data-toggle="tab">
+                              <i class="material-icons">dashboard</i>
+                              <%=level.name%>
+                            </a>
+                          </li>
+                        <% end %> 
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" >
+                    Presione en la barra superior, en los niveles que desea ver sus asignatiras y secciones.
+                  </div>
+                  <% @results.each do |level, value| %>
+
+                    <div class="tab-pane" id=<%=level.id%>>
+                          <% value.each do |subject, sections| %>
+                        <div class="row">
+                          <div class="col-md-offset-1 col-md-11 subject">
+                            <h3 class="subject"><%= subject.name %></h3>
+                          </div>
+                          <% sections.each do |section| %>
+                          <div class="col-md-offset-2 col-md-8 subject">
+                            <%= button_to truncate(section.name, length: 50, separator: " "), section_path(section), class: "btn btn-primary", method: :get, data: {toggle: "tooltip",placement: "bottom", original_title: section.name}   %>
+                          </div>
+                          <div class="col-md-2">
+                            <button class="btn btn-primary">Solicitar módulo</button>
+                          </div>
+                          <% end %> 
+
+                        </div>
+                          <% end %> 
+                    </div>
+                  <% end %>
+              </div>
+            </div>     
+  
+        </div>
+      </div>
+    </div>
+
+
+      <!--/div>
+  </div>
+</div-->
+
+<script type="text/javascript">
+  $('[data-toggle="tooltip"]').tooltip();
+</script>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Requests</h1>

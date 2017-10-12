@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'users/profile/:id', :to => 'users/registrations#show', :as => :profile
   end
 
-  get "dash_utp", to: "levels#dash_utp"
+  get "dash_utp", to: "schools#dash_utp"
   
   root to: 'users/sessions#new'
   

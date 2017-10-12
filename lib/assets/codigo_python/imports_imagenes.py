@@ -128,12 +128,12 @@ def hacer(opcion,cantidad=0,texto_proyectar=""):
         global w,h
         if zoom <= 0 or tamanno_actual <= 20: #tamano minimo permitido
             limite = True
-            texto_proyectar = "zoom minimo"
+            texto_proyectar = "zoom min"
             #remueve el zoom aplicado
             zoom+=cantidad
         elif zoom>=2.3: #tamanno maximo permitido
             limite=True
-            texto_proyectar = "zoom maximo"
+            texto_proyectar = "zoom max"
             #remueve el zoom aplicado
             zoom-=cantidad
 

@@ -5,10 +5,14 @@ es:
       user: "Usuario"
       school: "Colegio"
       subject: "Asignatura"
-      section: "Modulo"
+      section: "Módulo"
+      image: "Contenido"
     attributes:
       user:    
         current_password: "contraseña actual"
+      image:
+        content_content_type: "Tipo de imagen"
+        content: "Contenido"
     errors:
       messages:
         not_saved: "No se ha guardado"

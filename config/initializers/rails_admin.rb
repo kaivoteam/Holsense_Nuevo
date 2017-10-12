@@ -245,6 +245,9 @@ RailsAdmin.config do |config|
     field :clock do
       label 'Giro derecha' # Change the label of this field
     end
+    field :content_content_type do
+      label 'Tipo de imagen' # Change the label of this field
+    end
     field :content, :paperclip do
       label 'Imagen Gif'
      # jcrop_options aspectRatio: 140.00/90.0

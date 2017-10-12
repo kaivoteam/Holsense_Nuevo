@@ -23,5 +23,8 @@ class Image < ApplicationRecord
   	list do
   		exclude_fields :content
   	end
+    create do
+      exclude_fields :content_content_type
+    end
   end
 end

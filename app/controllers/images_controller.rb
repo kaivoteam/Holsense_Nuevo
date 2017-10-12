@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
-
+  after_action :save_my_previous_url, only: [:new]
+  
   # GET /images
   # GET /images.json
   def index
@@ -107,6 +108,23 @@ class ImagesController < ApplicationController
     end
 
     sleep 3
+  end
+
+  def stop
+    print "la url atras es: "
+    print session[:my_previous_url]
+    #redirect_back(fallback_location: root_path)
+    #stop all jobs
+    #Delayed::Job.all.each do |job|
+    #  job.delete
+    #end
+
+    #redirect_to /images/caca
+  end
+
+  def save_my_previous_url
+    # session[:previous_url] is a Rails built-in variable to save last url.
+    session[:my_previous_url] = URI(request.referer || '').path
   end
 
   private

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get "dash_utp", to: "schools#dash_utp"
   
+  root to: 'schools#index'
+  
   resources :sections
   resources :subjects
   resources :levels
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   resources :images do
     collection do
       get :clean
+      get :stop
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

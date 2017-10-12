@@ -73,8 +73,12 @@
             </div>  
 
              <div class="actions text-center" style="padding-top: 15px;">
+
       			<%= button_to 'Reset', clean_images_path, :method=>:get, :remote => true, :class => "btn btn-primary"  %>
+      			<%= button_to 'Cerrar', url_for(:back), :method=>:get, :class => "btn btn-primary"  %>
+   			 </div>      			
    			 </div>
+   			</div>
         </div>
       </div>
   </div>

@@ -1,3 +1,95 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li style="top: 30px; font-size: large;">
+              <span> Profesor <%= current_user.nickname%></span>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% if current_user.superadmin_role? %>
+                <li>
+                  <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                </li>
+                <li class="divider"></li>
+              <% else %>
+                <li><a href="#">Ver Perfil</a>
+                </li>
+                <li>
+                  <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                </li>
+              <% end %>
+              <li>
+                <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li> 
+            
+        </ul>
+      </div>
+  </div>
+</nav>
+
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1><%= @section.name %> </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main main-raised">
+
+  	<div class="card card-nav-tabs">
+  		<div class="header header-info">
+			<div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                    	<center>
+                    	<h2>Contenido</h2></center>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+    <div class="section"> 
+      <div class="container"></div>
+            <!--%= #button_to "ad", root_path, form_class: "btn btn-primary btn-fab btn-fab-mini btn-round" %-->
+            <div class="row">
+              <% @section.images.all.each do |image| %>
+                <div class="col-md-4 text-center center-block">
+                  <h3><%=image.name%></h3>
+
+                  <% if current_user.nil? %>
+                    <%= link_to new_user_session_path do %>
+                      <%= image_tag image.content.url(:thumb), class: "img-circle img-raised img-responsive center-block" %>
+                    <% end %>
+                  <% else %>
+                    <td>
+                     <%= image_tag image.content.url(:thumb), class: "img-circle img-raised img-responsive center-block" %> </td>
+                  <% end %>
+                  <h5><%=image.description%></h5>
+
+                  <div class="actions text-center" style="padding-top: 15px;">
+	      			<%= button_to 'Proyectar', image, :class => "btn btn-primary",:method=>:get %>
+	   			 </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>

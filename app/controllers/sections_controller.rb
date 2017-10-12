@@ -9,6 +9,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   # GET /sections/1.json
+  #mostrar la lista de imagenes por seccion
   def show
   end
 

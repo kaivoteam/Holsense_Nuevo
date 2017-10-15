@@ -20,6 +20,11 @@ class ImagesController < ApplicationController
     imagenes_folder = pwd+"/lib/assets/codigo_python/imagenes/"
     reset_folder = pwd+'/lib/assets/codigo_python/'
 
+    if not File.file?(imagenes_folder+nombre_imagen+'.gif')
+      #file      = File.open(imagenes_folder+nombre_imagen+'.gif')
+      @image.content.copy_to_local_file(:original, imagenes_folder+nombre_imagen+'.gif')
+    end
+
     # Ubuntu
     require 'os'
 
@@ -103,11 +108,12 @@ class ImagesController < ApplicationController
     nombre_archivo = 'reset.txt'
     ruta_creacion = "lib/assets/codigo_python/" + nombre_archivo
     filename = Rails.root.join(ruta_creacion)
-    File.open(filename, 'wb') do |file|
-      file << "Este archivo se originó por un movimiento reset"
+    if File.file?(filename)
+      File.open(filename, 'wb') do |file|
+        file << "Este archivo se originó por un movimiento reset"
+      end
+      sleep 3
     end
-
-    sleep 3
   end
 
   def stop

@@ -1,39 +1,39 @@
 es:
   errors:
     messages:
-      not_found: "no encontrado"
-      already_confirmed: "ya fue confirmado"
-      not_locked: "no ha sido desbloqueado"
+      not_found: "No encontrado"
+      already_confirmed: "Ya se ha confirmado"
+      not_locked: "No ha sido desbloqueado"
 
   devise:
     failure:
-      unauthenticated: 'Necesita ingresar o registrarse para continuar.'
-      unconfirmed: 'Necesita confirmar su cuenta antes de continuar.'
-      locked: 'Su cuenta ha sido bloqueada.'
+      unauthenticated: "Necesita ingresar o registrarse para continuar."
+      unconfirmed: "Necesita confirmar su cuenta antes de continuar."
+      locked: "Su cuenta ha sido bloqueada."
       invalid: "Email o Contraseña invalido."
       invalid_token: "Llave de Autenticación invalida."
       timeout: "Su sesión ha expirado, por favor ingrese nuevamente para continuar."
-      inactive: 'Su cuenta aun no ha sido activada.'
+      inactive: "Su cuenta aun no ha sido activada."
     sessions:
-      signed_in: "Ingreso de sesión exitosamente."
-      signed_out: 'Sesión cerrada exitosamente.'
+      signed_in: "Inicio de sesión exito."
+      signed_out: "Sesión cerrada exitosamente."
     passwords:
-      send_instructions: "Usted recibirá un email con instrucciones sobre como re establecer su contraseña en unos minutos."
-      updated: "Su contraseña ha sido cambiada exitosamente. Ahora usted puede ingresar."
+      send_instructions: "Usted recibirá un email con instrucciones sobre como reestablecer su contraseña en un momento."
+      updated: "Su contraseña se ha modificado exitosamente. Ahora puede ingresar."
     confirmations:
-      send_instructions: 'Usted recibirá un email con instrucciones de como confirmar su cuenta en unos minutos.'
-      confirmed: 'Su cuenta ha sido confirmada exitosamente. Ahora usted puede ingresar.'
+      send_instructions: "Usted recibirá un email con instrucciones sobre cómo confirmar su cuenta en un momento."
+      confirmed: "Su cuenta ha sido confirmada exitosamente. Ahora puede ingresar."
     registrations:
-      signed_up: "Se ha registrado con exito. Si está activado, la confirmación será enviada a su correo electrónico."
-      updated: 'Ha actualizado su cuenta exitosamente.'
-      destroyed: 'Adios! Su cuenta ha sido cancelada exitosamente. Esperamos verlo pronto.'
+      signed_up: "Se ha registrado con éxito. Si está activado, la confirmación será enviada a su correo electrónico."
+      updated: "Ha actualizado su cuenta exitosamente."
+      destroyed: "Hasta luego! Su cuenta ha sido cancelada exitosamente. Esperamos tenerte de vuelta muy pronto."
     unlocks:
-      send_instructions: "Usted recibirá un email con instrucciones sobre como des bloquear su cuenta en unos minutos."
-      unlocked: 'Su cuenta ha sido des bloqueada exitosamente. Ahora usted ingresar.'
+      send_instructions: "Usted recibirá un email con las instrucciones sobre cómo desbloquear su cuenta en unos minutos."
+      unlocked: "Su cuenta ha sido des bloqueada exitosamente. Ahora puede ingresar."
     mailer:
       confirmation_instructions:
-        subject: "Instrucciones de Confirmación"
+        subject: "Instrucciones de confirmación"
       reset_password_instructions:
-        subject: "Instrucciones para re establecer contraseña"
+        subject: "Instrucciones para reestablecer contraseña"
       unlock_instructions:
-        subject: 'Instrucciones para des bloquear'
+        subject: "Instrucciones para des bloquear"

@@ -1,0 +1,137 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li style="top: 30px; font-size: large;">
+            <% if current_user.superadmin_role? %>
+              <span> Gestor interno </span>
+            <% elsif current_user.utp_role? %>
+              <span> Coordinador UTP </span>
+            <% elsif current_user.teacher_role? %>
+              <span> Profesor </span>
+            <% end -%>
+          </li>
+          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+                                  <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <% if current_user.superadmin_role? %>
+                                    <li>
+                                      <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                                    </li>
+                                    <li class="divider"></li>
+                                  <% else %>
+                                    <li>
+                                      <%= link_to "Ver perfil", profile_path(current_user)%>
+                                    </li>
+                                    <li>
+                                      <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                                    </li>
+                                  <% end %>
+                                  <li>
+                                    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+                                  </li>
+                                </ul>
+                              </li> 
+            
+        </ul>
+      </div>
+  </div>
+</nav>
+      
+
+
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1>Instructivo</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="card card-nav-tabs">
+              <div class="content" style="width: 98.5%;">
+                <div class ="row" align="right">
+                  <a  href="/admin/" class = "btn btn-primary" style="top: -40px;"> Ir a Administración del sitio</a>&nbsp; &nbsp; &nbsp;
+                </div>
+
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" >
+
+                    <div class = "row">
+                      <div class="col-md-4">
+                        <br><a target="_blank" href="/admin/school/new"> 
+                          <div class="header header-info"> Crear Colegio</div></a>
+                      </div>
+                      <div class="col-md-8" style="text-align: justify;">
+                      Lo primero en realizar en el sistema es tener un colegio creado, por lo que debe dirigirse a <a target="_blank" href="/admin/school">Colegios</a> verificar si es que el colegio no existe en la lista. Si es que el colegio no se encuentra en la lista seleccionar "+ Agregar Nuevo" rellenando los campos necesarios y seleccionar "Guardar".
+                      </div>
+                  </div>
+
+                  <hr style="color:#333;background-color:#333;">
+
+                  <div class = "row">
+                    <div class="col-md-4">
+                      <br><a target="_blank" href="/admin/user/new"> 
+                        <div class="header header-info">Crear Usuario </div></a>
+                    </div>
+                    <div class="col-md-8" style="text-align: justify;">
+                      Para crear un usuario debe dirigirse a <a target="_blank" href="/admin/user">Usuarios</a> y verificar si es que el usuario no existe en la lista. Si es que un nuevo usuario es necesario debe ser creado mediante la selección de "+ Agregar Nuevo" y rellenando los campos necesarios, pudiendo crear un nuevo Colegio dentro del mismo formulario si es que no existe. Finalmente para crear seleccione "Guardar".
+                    </div>
+                  </div>
+
+                  <hr style="color:#333;background-color:#333;">
+
+                  <div class = "row">
+                    <div class="col-md-4">
+                      <br> <a target="_blank" href="/admin/section/new"> 
+                        <div class="header header-info">Crear Módulos</div></a>
+                    </div>
+                    <div class="col-md-8" style="text-align: justify;">
+                      Para crear módulos debe dirigirse a <a target="_blank" href="/admin/section">Módulos</a> y verificar si es que el módulo no existe en la lista. Si es que un nuevo módulo necesita ser creado seleccionar "+ Agregar Nuevo" rellenando los campos necesarios, pudiendo crear una Asignatura y un Curso, asociados al módulo a crear, en el mismo formulario si es que estos no existen. Finalmente para crear seleccione "Guardar".
+                    </div>
+                  </div>
+
+                  <hr style="color:#333;background-color:#333;">
+
+                  <div class = "row">
+                    <div class="col-md-4">
+                      <br><a target="_blank" href="/admin/image/new">
+                        <div class="header header-info">Crear Contenido</div></a>
+                    </div>
+                    <div class="col-md-8" style="text-align: justify;">
+                      Para crear contenido debe dirigirse a <a target="_blank" href="/admin/image">Contenidos</a> y verificar si es que el contenido no existe en la lista. Si es que un nuevo contenido es necesario debe ser creado mediante la selección de "+ Agregar Nuevo" y rellenando los campos necesarios, creando un nuevo Módulo dentro del mismo si es necesario. Finalmente para crear seleccione "Guardar".
+                    </div>
+                  </div>
+
+                  <hr style="color:#333;background-color:#333;">
+
+                  <div class = "row">
+                    <div class="col-md-4">
+                      <br>
+                        <div class="header header-info">Editar Solicitud</div>
+                    </div>
+                    <div class="col-md-8" style="text-align: justify;">
+                      ....
+                    </div>
+                  </div>
+
+
+                </div> 
+              </div>
+            </div>     
+  
+        </div>
+      </div>
+    </div>
+
+
+      <!--/div>
+  </div>
+</div-->

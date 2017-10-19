@@ -66,6 +66,9 @@ class SchoolsController < ApplicationController
     end
   end
 
+  def manual
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school

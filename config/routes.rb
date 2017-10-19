@@ -26,7 +26,11 @@ Rails.application.routes.draw do
   resources :subjects
   resources :levels
   resources :requests
-  resources :schools
+  resources :schools do
+    collection do
+      get :manual
+    end
+  end
   resources :images do
     collection do
       get :clean

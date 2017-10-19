@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
 
   belongs_to :school, optional: true
-  has_many :requests
+  has_many :requests, :dependent => :delete_all
 
   #para login por nickname
   attr_accessor :login

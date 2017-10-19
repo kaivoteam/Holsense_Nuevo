@@ -13,6 +13,7 @@ class Image < ApplicationRecord
 	has_and_belongs_to_many :sections, through: :images_sections
 
 	validates :name, presence: true
+  validates_uniqueness_of :name
 	validates :description, presence: true
 	validates :content, presence: true
   validates_presence_of :content

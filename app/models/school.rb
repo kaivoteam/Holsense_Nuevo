@@ -1,9 +1,10 @@
 class School < ApplicationRecord
-	has_many :users
+	has_many :users, :dependent => :delete_all
 
 	validates :name, presence: true
 	validates :phone, presence: true
 	validates :email, presence: true
+  validates_uniqueness_of :name
   validates_presence_of :name
   validates_presence_of :email
   validates_presence_of :phone

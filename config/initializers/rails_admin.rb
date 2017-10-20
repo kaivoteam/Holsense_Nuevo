@@ -14,6 +14,10 @@ RailsAdmin.config do |config|
   #}
 
   ## == Cancan ==
+  config.model 'Colegio' do 
+    navigation_label 'Colegio related'
+    weight -1 
+  end
   config.authorize_with :cancan
 
   ## == Pundit ==

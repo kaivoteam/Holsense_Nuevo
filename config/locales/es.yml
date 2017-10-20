@@ -234,13 +234,13 @@ es:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
       new:
         resend_confirmation_instructions: Reenviar instrucciones de confirmación
-      send_instructions: Vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos minutos.
-      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, en unos minutos recibirás un correo con instrucciones sobre cómo confirmar tu cuenta.
+      send_instructions: Vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en un momento.
+      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo confirmar tu cuenta.
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no ha sido activada.
       invalid: Email o contraseña no válidos.
-      last_attempt: Tienes un intento más antes de que tu cuenta sea bloqueada.
+      last_attempt: Queda un intento restante para que tu cuenta sea bloqueada.
       locked: Tu cuenta está bloqueada.
       not_found_in_database: Email o contraseña no válidos.
       timeout: Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.
@@ -254,7 +254,7 @@ es:
         subject: Instrucciones de confirmación
       password_change:
         greeting: Hola %{recipient}!
-        message: Le estamos contactando para notificarle que su contraseña ha sido cambiada.
+        message: Le estamos contactando para notificarle que su contraseña ha sido modificada.
         subject: Contraseña cambiada
       reset_password_instructions:
         action: Cambiar mi contraseña
@@ -262,7 +262,7 @@ es:
         instruction: Alguien ha solicitado un enlace para cambiar su contraseña, lo que se puede realizar a través del siguiente enlace.
         instruction_2: Si usted no lo ha solicitado, por favor ignore este correo electrónico.
         instruction_3: Su contraseña no será cambiada hasta que usted acceda al enlace y cree una nueva.
-        subject: Instrucciones de recuperación de contraseña
+        subject: Instrucciones para restablecer contraseña
       unlock_instructions:
         action: Desbloquear mi cuenta
         greeting: "¡Hola %{recipient}!"
@@ -280,10 +280,10 @@ es:
         new_password: Nueva contraseña
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
-        send_me_reset_password_instructions: Envíeme las instrucciones para resetear mi contraseña
-      no_token: No puedes acceder a esta página si no es a través de un enlace para resetear tu contraseña. Si has llegado hasta aquí desde el email para resetear tu contraseña, por favor asegúrate de que la URL introducida está completa.
-      send_instructions: Recibirás un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
-      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo resetear tu contraseña en tu bandeja de entrada.
+        send_me_reset_password_instructions: Envíeme las instrucciones para restablecer mi contraseña
+      no_token: No puedes acceder a esta página si no es a través de un enlace para restablecer tu contraseña. Si has llegado hasta aquí desde el email para resetear tu contraseña, por favor asegúrate de que la URL introducida está completa.
+      send_instructions: Recibirás un correo con instrucciones sobre cómo restablecer tu contraseña en unos pocos minutos.
+      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo restablecer tu contraseña en tu bandeja de entrada.
       updated: Se ha cambiado tu contraseña. Ya iniciaste sesión.
       updated_not_active: Tu contraseña fue cambiada.
     registrations:

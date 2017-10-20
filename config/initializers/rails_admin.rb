@@ -7,13 +7,17 @@ RailsAdmin.config do |config|
    end
    config.current_user_method(&:current_user)
 
-   config.main_app_name = ["HolSense", "Gestor interno"]
+   config.main_app_name = ["HolSense", " Gestor Interno"]
   #Agregar enlaces bajo los modelos
   #config.navigation_static_links = {
   #  'Google' => 'http://www.google.com'
   #}
 
   ## == Cancan ==
+  config.model 'Colegio' do 
+    navigation_label 'Colegio related'
+    weight -1 
+  end
   config.authorize_with :cancan
 
   ## == Pundit ==
@@ -46,7 +50,7 @@ RailsAdmin.config do |config|
 
   config.model 'Level' do
     label 'Curso' # Change the label of this model class
-    label_plural ' Cursos'
+    label_plural 'Cursos'
     navigation_icon 'icon-bookmark  ' #icono en la barra lateral
     field :name do
       label 'Nombre' # Change the label of this field
@@ -68,8 +72,8 @@ RailsAdmin.config do |config|
   config.model 'School' do
     #configure :avatar, :jcrop
     label 'Colegio' # Change the label of this model class
-    label_plural ' Colegios'
-    navigation_icon 'icon-home  ' #icono en la barra lateral
+    label_plural 'Colegios'
+    navigation_icon 'icon-home' #icono en la barra lateral
     field :name do
       label 'Nombre' # Change the label of this field
     end
@@ -104,7 +108,7 @@ RailsAdmin.config do |config|
 
   config.model 'User' do
     label 'Usuario' # Change the label of this model class
-    label_plural ' Usuarios'
+    label_plural 'Usuarios'
     navigation_icon 'icon-user  ' #icono en la barra lateral
     field :nickname do
       label 'Nombre' # Change the label of this field
@@ -125,7 +129,7 @@ RailsAdmin.config do |config|
       label 'Última conexión' # Change the label of this field
     end
     field :superadmin_role do
-      label 'Gestor interno' # Change the label of this field
+      label 'Gestor Interno' # Change the label of this field
     end
     field :utp_role do
       label 'Coordinador UTP' # Change the label of this field
@@ -155,7 +159,7 @@ RailsAdmin.config do |config|
 
   config.model 'Subject' do
     label 'Asignatura' # Change the label of this model class
-    label_plural ' Asignaturas'
+    label_plural 'Asignaturas'
     navigation_icon 'icon-book  ' #icono en la barra lateral
     field :name do
       label 'Nombre' # Change the label of this field
@@ -176,7 +180,7 @@ RailsAdmin.config do |config|
 
   config.model 'Section' do
     label 'Módulo' # Change the label of this model class
-    label_plural ' Módulos'
+    label_plural 'Módulos'
     navigation_icon 'icon-folder-open  ' #icono en la barra lateral
     field :name do
       label 'Nombre' # Change the label of this field
@@ -204,7 +208,7 @@ RailsAdmin.config do |config|
 
   config.model 'Request' do
     label 'Solicitud' # Change the label of this model class
-    label_plural ' Solicitudes'
+    label_plural 'Solicitudes'
     navigation_icon 'icon-list-alt  ' #icono en la barra lateral
     field :status do
       label 'Estado' # Change the label of this field
@@ -219,7 +223,7 @@ RailsAdmin.config do |config|
       label 'Usuario' # Change the label of this field
     end
     field :mail_requester do
-      label 'Mail del responsable' # Change the label of this field
+      label 'Email del responsable' # Change the label of this field
     end
     object_label_method do
       :custom_label_method
@@ -234,7 +238,7 @@ RailsAdmin.config do |config|
 
   config.model 'Image' do
     label 'Contenido' # Change the label of this model class
-    label_plural ' Contenidos'
+    label_plural 'Contenidos'
     navigation_icon 'icon-picture  ' #icono en la barra lateral
     field :name do
       label 'Nombre' # Change the label of this field
@@ -249,13 +253,13 @@ RailsAdmin.config do |config|
       label 'Tipo de imagen' # Change the label of this field
     end
     field :content, :paperclip do
-      label 'Imagen Gif'
+      label 'Imagen GIF'
      # jcrop_options aspectRatio: 140.00/90.0
      # fit_image true
      # delete_method :delete_content
     end
     field :sections do
-      label 'Secciones asociadas' # Change the label of this field
+      label 'Módulos asociadas' # Change the label of this field
     end
     object_label_method do
       :custom_label_method

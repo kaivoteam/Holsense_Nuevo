@@ -44,27 +44,27 @@ es:
       log_out: "Salir"
       ago: "atrás" #TODO: better something like "%{time} ago" -> "hace %{time}"
     flash:
-      successful: "%{name} %{action} con éxito"
-      error: "%{name} no se %{action}"
+      successful: "%{name} se ha %{action} con éxito"
+      error: "%{name} no se ha %{action}"
       noaction: "No se llevó a cabo ninguna acción"
-      model_not_found: "El modelo '%{model}' no se pudo encontrar"
+      model_not_found: "El componente '%{model}' no se pudo encontrar"
       object_not_found: "%{model} con id '%{id}' no se pudo encontrar"
     table_headers:
-      model_name: "Nombre del modelo"
-      last_used: "Último uso"
-      records: "Cantidad de registros"
+      model_name: "Componente"
+      last_used: "Última conexión"
+      records: "Total de registros"
       username: "Usuario"
       changes: "Cambios"
       created_at: "Fecha/Hora"
       item: "Elemento"
       message: "Mensaje"
       description: "Descripción"
-      last_created: 'Último creado'
+      last_created: 'Última modificación'
     actions:
       dashboard:
         title: "Administración del sitio"
         menu: "Panel de control"
-        breadcrumb: "Panel de control"
+        breadcrumb: "Panel de control" # Aquí podrás obtener un resumen de las estadísticas del sistema."
       index:
         title: "Lista de %{model_label_plural}"
         menu: "Listar"

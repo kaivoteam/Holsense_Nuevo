@@ -2,7 +2,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li style="top: 30px; font-size: large;">
             <% if current_user.superadmin_role? %>
-              <span> Gestor interno </span>
+              <span> Gestor Interno </span>
             <% elsif current_user.utp_role? %>
               <span> Coordinador UTP </span>
             <% elsif current_user.teacher_role? %>

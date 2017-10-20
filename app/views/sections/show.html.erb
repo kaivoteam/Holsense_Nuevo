@@ -65,7 +65,7 @@
               </div>
               </div>
     <div class="section"> 
-      <div class="container"></div>
+      <div class="container">
             <!--%= #button_to "ad", root_path, form_class: "btn btn-primary btn-fab btn-fab-mini btn-round" %-->
             <div class="row">
               <% @section.images.all.each do |image| %>
@@ -80,11 +80,11 @@
                     <td>
                      <%= image_tag image.content.url(:thumb), class: "img-circle img-raised img-responsive center-block" %> </td>
                   <% end %>
-                  <h5><%=image.description%></h5>
+                  <h5 style="text-align: justify;"><%=image.description%></h5>
 
                   <div class="actions text-center" style="padding-top: 15px;">
 	      			<%= button_to 'Proyectar', image, :class => "btn btn-primary",:method=>:get %>
-	   			 </div>
+          </div>
                 </div>
               <% end %>
             </div>

@@ -113,6 +113,14 @@ es:
         title: "Historial para %{model_label} '%{object_label}'"
         menu: "Historial"
         breadcrumb: "Historial"
+      review_request:
+        menu: "Aceptar solicitud"
+        title: "Aceptar solicitud"
+        breadcrumb: 'Aceptar'
+      review_request:
+        menu: "Rechazar solicitud"
+        title: "Rechazar solicitud"
+        breadcrumb: 'Rechazar'
     form:
       cancel: "Cancelar"
       basic_info: "Información básica"

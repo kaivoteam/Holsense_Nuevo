@@ -11,6 +11,14 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   #mostrar la lista de imagenes por seccion
   def show
+    unless session[:jobs].nil? || session[:jobs] == 0
+      #stop all jobs of executed images in piramid
+      for job in session[:jobs]
+        Process.kill "TERM", job #it can be "KILL"
+      end
+      #assumed that all jobs are killed
+      session[:jobs] = 0
+    end
   end
 
   # GET /sections/new

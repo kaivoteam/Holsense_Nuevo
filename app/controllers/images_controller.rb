@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
   after_action :save_my_previous_url, only: [:new]
+
   
   # GET /images
   # GET /images.json
@@ -12,7 +13,6 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     #nombre de la imagen obtenida del catalogo
-    print "Nombre: "
     nombre_imagen = @image.content.to_s.split("?")[0].split("/")[-1].split(".")[0]
     #nombre_imagen = @image.name
     giro_derecha = @image.clock.to_s
@@ -30,25 +30,29 @@ class ImagesController < ApplicationController
 
     #En win
     if OS.windows?  #=> true or false
-      job1 = Process.spawn("python lib/assets/codigo_python/leer_leapmotion.py "+nombre_imagen+" "+giro_derecha+" "+imagenes_folder+" "+reset_folder)
-      job2 = Process.spawn("python lib/assets/codigo_python/checkeo_imagen.py "+pwd)
-      job3 = Process.spawn("python lib/assets/codigo_python/vista_imagen.py "+pwd)
+      @job1 = Process.spawn("python lib/assets/codigo_python/leer_leapmotion.py "+nombre_imagen+" "+giro_derecha+" "+imagenes_folder+" "+reset_folder)
+      @job2 = Process.spawn("python lib/assets/codigo_python/checkeo_imagen.py "+pwd)
+      @job3 = Process.spawn("python lib/assets/codigo_python/vista_imagen.py "+pwd)
     else 
-      job1 = fork do
+      @job1 = fork do
         exec("python lib/assets/codigo_python/leer_leapmotion.py "+nombre_imagen+" "+giro_derecha+" "+imagenes_folder+ " "+reset_folder) #genera imagenes
        #para ejecutar es necesario "nombre de imagen + carpeta de imagenes + giro gif"
       end
 
-      job2 = fork do 
+      @job2 = fork do 
         exec("python lib/assets/codigo_python/checkeo_imagen.py "+pwd) #actualiza imagenes en una ventana
         #necesito argumentos de job1 y job2
       end
 
-      job3 = fork do 
+      @job3 = fork do 
         exec("python lib/assets/codigo_python/vista_imagen.py "+pwd) #actualiza imagenes en una ventana
       end
     end
 
+    session[:jobs] = [@job1,@job2,@job3]
+    Rails.cache.write("jobs",[@job1,@job2,@job3])
+
+    #para dearjlos ejecutando como daemons
     #Process.detach(job1)
     #Process.detach(job2)
     #Process.detach(job3)
@@ -117,9 +121,15 @@ class ImagesController < ApplicationController
   end
 
   def stop
+    #stop all jobs
+    Rails.cache.read("jobs") do |job|
+      Process.kill "TERM", job
+    end
+
+    print "            "
     print "la url atras es: "
-    print session[:my_previous_url]
-    #redirect_back(fallback_location: root_path)
+    print session[:my_previous_previous_url]
+    redirect_back(fallback_location: session[:my_previous_previous_url])
     #stop all jobs
     #Delayed::Job.all.each do |job|
     #  job.delete
@@ -130,6 +140,7 @@ class ImagesController < ApplicationController
 
   def save_my_previous_url
     # session[:previous_url] is a Rails built-in variable to save last url.
+    session[:my_previous_previous_url] = session[:my_previous_url].dup
     session[:my_previous_url] = URI(request.referer || '').path
   end
 

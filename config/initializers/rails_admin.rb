@@ -1,3 +1,9 @@
+require Rails.root.join('lib', 'rails_admin', 'review_request.rb')
+require Rails.root.join('lib', 'rails_admin', 'reject_request.rb')
+
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ReviewRequest)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::RejectRequest)
+
 RailsAdmin.config do |config|
   ### Popular gems integration
 
@@ -42,6 +48,12 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+
+    #Agregar funcion review_request
+    review_request
+
+    #Agregar funcion reject_request
+    reject_request
 
     ## With an audit adapter, you can add:
     # history_index

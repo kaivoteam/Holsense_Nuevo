@@ -63,7 +63,7 @@ es:
     actions:
       dashboard:
         title: "Administración del sitio"
-        menu: "Panel de control"
+        menu: "Instructivo"
         breadcrumb: "Panel de control" # Aquí podrás obtener un resumen de las estadísticas del sistema."
       index:
         title: "Lista de %{model_label_plural}"

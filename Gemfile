@@ -74,3 +74,5 @@ gem 'os'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'seed_dump'
+
+gem 'bcrypt',platforms: :ruby if Gem.win_platform?

@@ -117,7 +117,7 @@ es:
         menu: "Aceptar solicitud"
         title: "Aceptar solicitud"
         breadcrumb: 'Aceptar'
-      review_request:
+      reject_request:
         menu: "Rechazar solicitud"
         title: "Rechazar solicitud"
         breadcrumb: 'Rechazar'

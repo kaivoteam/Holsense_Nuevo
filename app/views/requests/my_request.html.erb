@@ -1,0 +1,107 @@
+<!-- Terminar barra de navegacion -->
+
+              <div class="collapse navbar-collapse" id="example-navbar-primary">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li>
+                      <% if current_user.nil? %>
+                        <%= link_to new_user_session_path, class: 'btn btn-primary' do %><i class="material-icons">account_circle</i> Gestor Interno<% end %>
+                      <% else %>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+                                  <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <% if current_user.superadmin_role? %>
+                                    <li>
+                                      <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                                    </li>
+                                    <li class="divider"></li>
+                                  <% else %>
+                                    <li>
+                                      <%= link_to "Ver perfil", profile_path(current_user)%>
+                                    </li>
+                                    <li>
+                                      <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                                    </li>
+                                  <% end %>
+                                  <li>
+                                    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+                                  </li>
+                                </ul>
+                              </li> 
+                      <% end %>
+                    </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1>Mis Solicitudes</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="main main-raised">
+    <div class="section">
+      <div class="container"></div>
+
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Número solicitud</th>
+            <th> Estado </th>
+            <th>Módulo solicitado</th>
+            <th> Comentario </th>
+            <th>Email responable</th>
+            <th class="text-right"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% @requests.each do |request| %>
+          <tr>
+            <td class="text-right"><%= request.id %></td>
+            <td><%= request.status %></td>
+            <td><%= truncate(request.section.name, length: 30, separator: " ")%></td>
+            <td><%= request.comment %></td>
+            <td><%= request.mail_requester %></td>
+            <td  class="text-right"> 
+                <%= button_to request_path(request), class: "btn btn-info btn-simple btn-xs", method: :get, data: {toggle: "tooltip",placement: "bottom", title: "Ver Solicitud"} do  %>
+                  <i class="fa fa-eye"></i>
+                <% end -%>
+
+                <%= button_to edit_request_path(request), class: "btn btn-success btn-simple btn-xs", method: :get, data: {toggle: "tooltip",placement: "bottom", title: "Editar Solicitud"} do  %>
+                  <i class="fa fa-edit"></i>
+                <% end -%>
+
+                <%= button_to request, class: "btn btn-danger btn-simple btn-xs",  method: :delete, data: { confirm: 'Estás seguro?', toggle: "tooltip",placement: "bottom", title: "Eliminar Solicitud"} do  %>
+                  <i class="fa fa-times"></i>
+                <% end -%>
+            </td>
+          </tr>
+        <% end %> 
+
+        
+    </tbody>
+</table>
+    
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

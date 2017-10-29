@@ -111,21 +111,12 @@ RailsAdmin.config do |config|
       :custom_label_method
     end
 
-    field :action do
-      formatted_value{ bindings[:object].call_some_method }
-      label 'Acción'
-    end
-
   end
 
   School.class_eval do
     def custom_label_method
       "#{self.name}"
     end
-    def call_some_method
-      "ds"
-    end
-
   end
 
   config.model 'User' do
@@ -250,11 +241,20 @@ RailsAdmin.config do |config|
     object_label_method do
       :custom_label_method
     end
+
+    field :action do
+      formatted_value{ bindings[:object].call_some_method }
+      label 'Acción'
+    end
   end
 
   Request.class_eval do
     def custom_label_method
       "#{self.id}"
+    end
+
+    def call_some_method
+      "asd"
     end
   end
 

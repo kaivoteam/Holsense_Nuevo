@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   get "dash_utp", to: "schools#dash_utp"
+  get "my_request", to: "requests#my_request"
   
   root to: 'users/sessions#new'
   

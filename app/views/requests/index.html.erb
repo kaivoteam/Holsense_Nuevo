@@ -93,7 +93,7 @@
                             <%= button_to truncate(section.name, length: 50, separator: " "), section_path(section), class: "btn btn-primary", method: :get, data: {toggle: "tooltip",placement: "bottom", original_title: section.name}   %>
                           </div>
                           <div class="col-md-2">
-                            <button class="btn btn-primary">Solicitar módulo</button>
+                            <%= button_to "Solicitar módulo", new_request_path(section), class: "btn btn-primary", method: :get, data: {toggle: "tooltip",placement: "bottom"}   %>
                           </div>
                           <% end %> 
 

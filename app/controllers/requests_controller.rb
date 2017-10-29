@@ -39,20 +39,37 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    @section = Section.find(params[:format])
+    if(!current_user.email.nil? or !current_user.email.empty?)
+      @mail_requester = current_user.email
+    elsif (!current_user.school.nil? or !current_user.school.empty?)
+      @mail_requester = current_user.school.email
+    else
+      @mail_requester = nil
+    end
+    
+  end
+
+  # GET /requests/my_request
+  def my_request
+    @requests = current_user.requests
   end
 
   # GET /requests/1/edit
   def edit
+    @section = @request.section
   end
 
   # POST /requests
   # POST /requests.json
   def create
+    puts request_params
     @request = Request.new(request_params)
+    @section = Section.find(request_params[:section_id])
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to requests_path, notice: 'Solucitud enviada correctamente.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -66,7 +83,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to @request, notice: 'Solucitud actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
@@ -80,7 +97,7 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
+      format.html { redirect_to requests_url, notice: 'Solucitud eliminada correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -93,6 +110,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:comment, :status, :mail_requester)
+      params.require(:request).permit(:comment, :status, :mail_requester, :section_id, :user_id)
     end
 end

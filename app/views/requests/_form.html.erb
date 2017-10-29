@@ -1,3 +1,70 @@
+<!-- Terminar barra de navegacion -->
+
+              <div class="collapse navbar-collapse" id="example-navbar-primary">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li>
+                      <% if current_user.nil? %>
+                        <%= link_to new_user_session_path, class: 'btn btn-primary' do %><i class="material-icons">account_circle</i> Gestor Interno<% end %>
+                      <% else %>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+                                  <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <% if current_user.superadmin_role? %>
+                                    <li>
+                                      <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                                    </li>
+                                    <li class="divider"></li>
+                                  <% else %>
+                                    <li>
+                                      <%= link_to "Ver perfil", profile_path(current_user)%>
+                                    </li>
+                                    <li>
+                                      <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                                    </li>
+                                  <% end %>
+                                  <li>
+                                    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+                                  </li>
+                                </ul>
+                              </li> 
+                      <% end %>
+                    </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1>Solicitar Módulo</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="main main-raised">
+    <div class="section">
+      <div class="container"></div>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 ">
+
+
 <%= form_with(model: request, local: true) do |form| %>
   <% if request.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +78,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment, id: :request_comment %>
+
+  <div class="input-group">
+    <span class="label label-primary">Módulo solicitado</span>
+    <label autocomplete="off" class="form-control"><%= @section.name%> </label>
+    <%= form.hidden_field :section_id, {value: @section.id} %>
+    <span class="material-input"> </span>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :request_status %>
+
+  <div class="input-group">
+    <span class="label label-primary">Comentario sobre la solicitud </span>
+    <%= form.text_area :comment, id: :request_comment, class: "form-control" ,required: :true %>
+    <span class="material-input"> </span>
   </div>
 
-  <div class="field">
-    <%= form.label :mail_requester %>
-    <%= form.text_field :mail_requester, id: :request_mail_requester %>
+  <div class="input-group">
+    <span class="label label-primary">Mail del esponsable de la solicitud</span>
+    <% if @mail_requester.nil? or @mail_requester.empty?%>
+      <%= form.email_field :mail_requester, autocomplete: "off", class: "form-control",required: :true  %>
+    <% else %>
+      <%= form.hidden_field :mail_requester, {value: @mail_requester} %>
+      <label autocomplete="off" class="form-control"><%= @mail_requester%> </label>
+      <% puts @mail_requester %>
+    <% end %>
+    <%= form.hidden_field :user_id, {value: current_user.id} %>
+    <span class="material-input"> </span>
   </div>
+  <%= form.hidden_field :status, {value: "Pendant"} %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-center">
+    <%= form.submit "Enviar", class: "btn btn-primary " %>
   </div>
 <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

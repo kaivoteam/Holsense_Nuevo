@@ -59,7 +59,7 @@
         <div class="row">
           <%= button_to "Mis módulos", levels_path, class: "btn btn-primary col-md-3", style:" margin-right: 100px;", method: :get  %>
           <%= button_to "Módulos disponibles", requests_path, class: "btn btn-primary col-md-3", style:" margin-right: 100px;", method: :get  %>
-          <button class="btn btn-primary col-md-3">Ver solicitudes</button>
+          <%= button_to "Ver solicitudes", my_request_path, class: "btn btn-primary col-md-3", method: :get  %>
         </div>
       </div>
     </div>

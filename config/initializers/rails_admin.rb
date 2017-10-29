@@ -242,10 +242,10 @@ RailsAdmin.config do |config|
       :custom_label_method
     end
 
-    field :action do
-      formatted_value{ bindings[:object].call_some_method }
-      label 'Acción'
-    end
+  #  field :action do
+  #    formatted_value{ bindings[:object].call_some_method }
+  #    label 'Acción'
+  #  end
   end
 
   Request.class_eval do
@@ -253,9 +253,9 @@ RailsAdmin.config do |config|
       "#{self.id}"
     end
 
-    def call_some_method
-      "asd"
-    end
+  #  def call_some_method
+  #    config.actions.review_request
+  #  end
   end
 
   config.model 'Image' do

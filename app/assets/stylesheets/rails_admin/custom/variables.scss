@@ -25,11 +25,11 @@ $white-transparent: rgba($white-color, .8);
 
 $gray-color:  #999999 !default;
 
-$brand-primary: $blue !default; //purple
+$brand-primary: #26A488 !default; //purple
 $brand-success: $green !default;
 $brand-danger: $red !default;
 $brand-warning: $orange !default;
-$brand-info: $light-blue !default;
+$brand-info: #43D3B3 !default; //$light-blue !default;
 $brand-rose: $pink !default;
 
 $border-radius-base: 3px !default;
@@ -72,15 +72,15 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             #999999 !default; // #999999
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+$brand-primary:         darken(#26A488, 6.5%) !default; // #337ab7
 $brand-success:         $green !default;
-$brand-info:            $light-blue !default;
+$brand-info:            #26A488 !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
 $black-color:           #3C4858 !default;
 
-
+//#26A488 el celeste es 428bca
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
@@ -219,16 +219,16 @@ $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
 
 $btn-primary-color:              #fff !default;
-$btn-primary-bg:                 $blue !default;
+$btn-primary-bg:                 #26A488 !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 
 $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-success !default;
 $btn-success-border:             darken($btn-success-bg, 5%) !default;
-
+//
 $btn-info-color:                 #fff !default;
-$btn-info-bg:                    $blue !default;
-$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-bg:                    #26A488 !default;
+$btn-info-border:                $btn-info-bg !default;
 
 $btn-warning-color:              #fff !default;
 $btn-warning-bg:                 $brand-warning !default;
@@ -454,7 +454,7 @@ $navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
 $navbar-default-toggle-hover-bg:           #ddd !default;
-$navbar-default-toggle-icon-bar-bg:        #888 !default;
+$navbar-default-toggle-icon-bar-bg:        #26A488 !default;
 $navbar-default-toggle-border-color:       #ddd !default;
 
 

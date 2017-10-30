@@ -326,3 +326,11 @@ es:
       send_instructions: Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       send_paranoid_instructions: Si tu cuenta existe, vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       unlocked: Tu cuenta ha sido desbloqueada. Ya puedes iniciar sesión.
+  rails_admin:
+    main:
+      review_request:
+        create_user: Se ha creado un usuario con nombre '%{name}' y contraseña inicial '%{pass}'. Indique al coordinador UTP '%{utp}' esta nueva cuenta de acceso.
+
+
+          
+  

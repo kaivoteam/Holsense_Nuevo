@@ -7,6 +7,8 @@ class LevelsController < ApplicationController
     @levels = Level.all.order(:name)
     @subjects = Subject.all.order(:name)
     @modules = Section.all
+    @requests = Request.where(user_id: current_user.id).or(Request.where(utp_role_id: current_user.id)).or(Request.where(teacher_role_id: current_user.id))
+
 
     @results = Hash.new 
 
@@ -15,8 +17,10 @@ class LevelsController < ApplicationController
       @subjects.each do |subject|
         asdasd = []
         @modules.each do |mod|
-          if mod.level_id == level.id and mod.subject_id == subject.id
-            asdasd.append(mod)
+          @requests.each do |request|
+            if mod.level_id == level.id and mod.subject_id == subject.id and request.section == mod and request.status == "Accepted"
+              asdasd.append(mod)
+            end
           end
         end
         if !asdasd.empty?

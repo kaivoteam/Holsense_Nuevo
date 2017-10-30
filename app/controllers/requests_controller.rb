@@ -4,11 +4,12 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
 
     @levels = Level.all.order(:name)
     subjects = Subject.all.order(:name)
-    modules = Section.all
+    modules = Section.all    
+    @requests = Request.where(user_id: current_user.id).or(Request.where(utp_role_id: current_user.id))
+
 
     @results = Hash.new 
 
@@ -17,8 +18,13 @@ class RequestsController < ApplicationController
       subjects.each do |subject|
         asdasd = []
         modules.each do |mod|
-          if mod.level_id == level.id and mod.subject_id == subject.id
+          if mod.level_id == level.id and mod.subject_id == subject.id 
             asdasd.append(mod)
+          end
+        end
+        @requests.each do |request|
+          if asdasd.include?(request.section) and request.status != "Rejected"
+            asdasd.delete(request.section)
           end
         end
         if !asdasd.empty?
@@ -69,7 +75,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to requests_path, notice: 'Solucitud enviada correctamente.' }
+        format.html { redirect_to requests_path, notice: 'Solicitud enviada correctamente.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -83,7 +89,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Solucitud actualizada correctamente.' }
+        format.html { redirect_to @request, notice: 'Solicitud actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
@@ -97,7 +103,7 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Solucitud eliminada correctamente.' }
+      format.html { redirect_to requests_url, notice: 'Solicitud eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

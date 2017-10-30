@@ -94,7 +94,7 @@
   </div>
 
   <div class="input-group" style="display: inherit;">
-    <span class="label label-primary">Mail del esponsable de la solicitud</span>
+    <span class="label label-primary">Mail del responsable de la solicitud</span>
     <% if @mail_requester.nil? or @mail_requester.empty?%>
       <%= form.email_field :mail_requester, autocomplete: "off", class: "form-control",required: :true  %>
     <% else %>

@@ -21,7 +21,20 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
-            @object.update(status: "Accepted")
+            subject = @object.section.subject.name
+            school = @object.user.school.name
+            posible_user = subject + " " + school
+            user = User.find_by(nickname: posible_user)
+
+            school.downcase!.delete(' ')
+
+            if user.nil?
+              #crear
+              
+            else
+              @object.update(status: "Accepted", teacher_role_id: user.id, utp_role_id: @object.user_id)
+            end
+
             redirect_to back_or_index
           end
         end

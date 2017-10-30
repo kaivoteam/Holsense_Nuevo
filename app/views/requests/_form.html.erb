@@ -79,7 +79,7 @@
   <% end %>
 
 
-  <div class="input-group">
+  <div class="input-group" style="display: inherit;">
     <span class="label label-primary">Módulo solicitado</span>
     <label autocomplete="off" class="form-control"><%= @section.name%> </label>
     <%= form.hidden_field :section_id, {value: @section.id} %>
@@ -87,13 +87,13 @@
   </div>
 
 
-  <div class="input-group">
+  <div class="input-group" style="display: inherit;">
     <span class="label label-primary">Comentario sobre la solicitud </span>
     <%= form.text_area :comment, id: :request_comment, class: "form-control" ,required: :true %>
     <span class="material-input"> </span>
   </div>
 
-  <div class="input-group">
+  <div class="input-group" style="display: inherit;">
     <span class="label label-primary">Mail del esponsable de la solicitud</span>
     <% if @mail_requester.nil? or @mail_requester.empty?%>
       <%= form.email_field :mail_requester, autocomplete: "off", class: "form-control",required: :true  %>

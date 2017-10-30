@@ -107,10 +107,15 @@
   </div>
   <%= form.hidden_field :status, {value: "Pendant"} %>
 
-  <div class="actions text-center">
-    <%= form.submit "Enviar", class: "btn btn-primary " %>
-  </div>
+  <div class="row">
+    <div class="col-md-6 actions text-center">
+      <%= form.submit "Enviar", class: "btn btn-primary " %>
+    </div>
 <% end %>
+    <div class="col-md-6 actions text-center">
+      <%= button_to 'Volver',  levels_path, class: "btn btn-primary",method: :get %>
+    </div>
+  </div>
             </div>
           </div>
         </div>

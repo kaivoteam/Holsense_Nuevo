@@ -6,9 +6,16 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get "dash_utp", to: "schools#dash_utp"
   devise_scope :user do
-    authenticated :user do
-      root to: 'levels#index', as: :authenticated_root
+    authenticated :teacher_role do
+      root to: 'levels#index', as: :teacher_role
+    end
+    authenticated :utp_role do
+      root to: 'schools#dash_utp', as: :utp_role
+    end
+    authenticated :superadmin_role do
+      root to: 'levels#index', as: :superadmin_role
     end
 
     root to: 'users/sessions#new', as: :unauthenticated_root
@@ -18,10 +25,9 @@ Rails.application.routes.draw do
     get 'users/profile/:id', :to => 'users/registrations#show', :as => :profile
   end
 
-  get "dash_utp", to: "schools#dash_utp"
   get "my_request", to: "requests#my_request"
   
-  root to: 'users/sessions#new'
+  #root to: 'users/sessions#new'
   
   resources :sections
   resources :subjects

@@ -61,25 +61,39 @@
 
                 <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
-                    <ul class="nav nav-tabs" data-tabs="tabs">
+                    <div class="row">
+                      <div class="col-md-10">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
 
-                        <% @levels.each do |level| %>
-                          <li class="col-md-2 text-center">
-                            <a href="#<%=level.id%>" data-toggle="tab">
-                              <i class="material-icons">dashboard</i>
-                              <%=level.name%>
-                            </a>
+                            <% @results.each do |level, value| %>
+                              <li class="col-md-3 text-center">
+                                <a href="#<%=level.id%>" data-toggle="tab">
+                                  <i class="material-icons">dashboard</i>
+                                  <%=level.name%>
+                                </a>
+                              </li>
+                            <% end %> 
+                        </ul>
+                      </div>
+                      <div class="col-md-2">
+                        <ul>
+                            <li class="text-center center-block">
+                            <%= button_to 'Volver',  levels_path, class: "btn btn-primary",method: :get, style: "margin: auto;" %>
                           </li>
-                        <% end %> 
-
-                    </ul>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="content">
                 <div class="tab-content text-center">
                   <div class="tab-pane active" >
-                    Presione en la barra superior, en los niveles que desea ver sus asignaturas y secciones.
+                    <% if @results.empty? %>
+                      Póngase en contacto con su Coordinador de UTP para tener módulos a su disposición.
+                    <% else %>
+                      Presione en la barra superior, en los niveles que desea ver sus asignatiras y secciones.
+                    <% end %>
                   </div>
                   <% @results.each do |level, value| %>
 

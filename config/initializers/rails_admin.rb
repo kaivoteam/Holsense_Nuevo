@@ -236,16 +236,21 @@ RailsAdmin.config do |config|
       label 'Usuario' # Change the label of this field
     end
     field :mail_requester do
-      label 'Email del responsable' # Change the label of this field
+      label 'Email del responsable adasdas' # Change the label of this field
     end
+
+    #field :review_request do
+      #label 'Acciones'
+      #formatted_value{ bindings[:object].call_some_method }
+    #end
+    
+    #field :reject_request do
+      #label 'Rechazar'
+    #end
+
     object_label_method do
       :custom_label_method
     end
-
-  #  field :action do
-  #    formatted_value{ bindings[:object].call_some_method }
-  #    label 'Acción'
-  #  end
   end
 
   Request.class_eval do
@@ -253,9 +258,9 @@ RailsAdmin.config do |config|
       "#{self.id}"
     end
 
-  #  def call_some_method
-  #    config.actions.review_request
-  #  end
+    #def call_some_method
+      #Review_request
+    #end
   end
 
   config.model 'Image' do

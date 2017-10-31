@@ -18,7 +18,7 @@ class LevelsController < ApplicationController
         asdasd = []
         @modules.each do |mod|
           @requests.each do |request|
-            if mod.level_id == level.id and mod.subject_id == subject.id and request.section == mod and request.status == "Accepted"
+            if mod.level_id == level.id and mod.subject_id == subject.id and request.section == mod and request.status == "Aceptada"
               asdasd.append(mod)
             end
           end

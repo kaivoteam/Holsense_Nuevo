@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
           end
         end
         @requests.each do |request|
-          if asdasd.include?(request.section) and request.status != "Rejected"
+          if asdasd.include?(request.section) and request.status != "Rechazada"
             asdasd.delete(request.section)
           end
         end

@@ -32,10 +32,10 @@ module RailsAdmin
             if user.nil?
               #crear
               asd =  User.create(nickname: posible_user, password: school, password_confirmation: school, teacher_role:true, utp_role: false, superadmin_role: false, school_id: school_id)
-              @object.update(status: "Accepted", teacher_role_id: asd.id, utp_role_id: @object.user_id)
+              @object.update(status: "Aceptada", teacher_role_id: asd.id, utp_role_id: @object.user_id)
               flash[:success] = t('.create_user', name: posible_user, pass: school, utp: @object.user.nickname)
             else
-              @object.update(status: "Accepted", teacher_role_id: user.id, utp_role_id: @object.user_id)
+              @object.update(status: "Aceptada", teacher_role_id: user.id, utp_role_id: @object.user_id)
             end
 
             redirect_to back_or_index

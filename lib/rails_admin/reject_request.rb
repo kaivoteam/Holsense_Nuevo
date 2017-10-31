@@ -21,7 +21,7 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
-            @object.update(status: "Rejected")
+            @object.update(status: "Rechazada")
             redirect_to back_or_index
           end
         end

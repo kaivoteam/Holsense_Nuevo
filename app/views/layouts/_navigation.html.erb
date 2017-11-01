@@ -10,7 +10,18 @@
 	        	<div class="logo-container">
 	                <div class="logo">
 	                    <!--img src="logo.png" alt="HolSense" rel="tooltip" title="ASDASD" data-placement="bottom" data-html="true"-->
-	                    <%= link_to image_tag("logo.png"), levels_path, {alt: "HolSense", rel: "tooltip", title: "Hola!", "data-placement": "bottom", "data-html": "true"} %>
+	                    <% if user_signed_in? %>
+
+		                    <% if current_user.utp_role? %>
+		                    	<%= link_to image_tag("logo.png"), dash_utp_path, {alt: "HolSense", rel: "tooltip", title: "Hola coordinador!", "data-placement": "bottom", "data-html": "true"} %>
+		                    <% end %>
+
+		                    <% if current_user.teacher_role? %>
+		                    	<%= link_to image_tag("logo.png"), levels_path, {alt: "HolSense", rel: "tooltip", title: "Hola profesor!", "data-placement": "bottom", "data-html": "true"} %>
+		                    <% end %>
+		                <% else %>
+		                	<%= link_to image_tag("logo.png"), "", {alt: "HolSense", rel: "tooltip", title: "Bienvenido!", "data-placement": "bottom", "data-html": "true",style: "pointer-events: none;"}%>
+	                    <% end %>
 	                </div>
 	                <div class="brand">
 	                	<h4>HolSense</h4>

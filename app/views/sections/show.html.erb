@@ -55,10 +55,24 @@
                   <div class="nav-tabs-wrapper">
                     <ul class="nav nav-tabs" data-tabs="tabs">
                       <li class="col-xs-2 text-center center-block">
-                        <%= button_to 'Volver',  levels_path, class: "btn btn-primary",method: :get, style: "margin-top: 25px;" %>
+                        <% if current_user.utp_role? %>
+                          <%= button_to 'Solicitar Módulo',new_request_path(@section)  , class: "btn btn-primary",method: :get, data: {toggle: "tooltip",placement: "bottom"}, style: "margin-top: 25px;" %>
+                        <%end %>
+                        <% if current_user.teacher_role? %>
+                        &nbsp;
+                        <% end %>
                       </li>
                     	<li class="col-xs-8 text-center center-block">
                         <center><h2>Contenido</h2></center>
+                      </li>
+                      <li class="col-xs-2 text-center center-block">
+
+                        <% if current_user.utp_role? %>
+                          <%= button_to 'Atras', :back  , class: "btn btn-primary",method: :get, style: "margin-top: 25px;" %>
+                        <% end %>
+                        <% if current_user.teacher_role? %>
+                          <%= button_to 'Atras', levels_path  , class: "btn btn-primary",method: :get, style: "margin-top: 25px;" %>
+                        <% end %>
                       </li>
                     </ul>
                   </div>

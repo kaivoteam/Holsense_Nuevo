@@ -75,7 +75,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to requests_path, notice: 'Solicitud enviada correctamente.' }
+        format.html { redirect_to @request, notice: 'Solicitud enviada correctamente.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -90,7 +90,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.update(request_params)
         format.html { redirect_to @request, notice: 'Solicitud actualizada correctamente.' }
-        format.json { render :show, status: :ok, location: @request }
+        format.json { render :update, status: :ok, location: @request }
       else
         format.html { render :edit }
         format.json { render json: @request.errors, status: :unprocessable_entity }
@@ -103,7 +103,7 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Solicitud eliminada correctamente.' }
+      format.html { redirect_to "/my_request", notice: 'Solicitud eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

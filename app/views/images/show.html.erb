@@ -49,12 +49,18 @@
                 <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                     <ul class="nav nav-tabs" data-tabs="tabs">
-                    	<center>
-                    	<h2>Proyectando <%= @image.name %> </h2></center>
+                      <li class="col-xs-2 text-center center-block">"</li>
+                      <li class="col-xs-8 text-center center-block">
+                        <center><h2>Proyectando <%= @image.name %></h2></center>
+                      </li>
+                      <li class="col-xs-2 text-center center-block">
+                        <%= button_to 'Cerrar', levels_path  , class: "btn btn-primary",method: :get %>
+                      </li>
                     </ul>
                   </div>
                 </div>
               </div>
+
               <div class="content">
                 <div class="tab-content text-center">
                   <div class="tab-pane active" id="1">
@@ -74,8 +80,7 @@
 
              <div class="actions text-center" style="padding-top: 15px;">
 
-      			<%= button_to 'Resetear', clean_images_path, :method=>:get, :remote => true, :class => "btn btn-primary"  %>
-      			<%= button_to 'Cerrar', url_for(:back), :method=>:get, :class => "btn btn-primary"  %>
+      			<%= button_to 'Resetear Proyección', clean_images_path, :method=>:get, :remote => true, :class => "btn btn-primary"  %>
    			 </div>      			
    			 </div>
    			</div>

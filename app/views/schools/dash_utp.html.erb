@@ -47,24 +47,69 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="brandasd">
-            <h1></h1>
+            <h1>Seleccionar Acción</h1>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="main main-raised">
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <%= button_to "Mis módulos", levels_path, class: "btn btn-primary col-md-3", style:" margin-right: 100px;", method: :get  %>
-          <%= button_to "Módulos disponibles", requests_path, class: "btn btn-primary col-md-3", style:" margin-right: 100px;", method: :get  %>
-          <%= button_to "Ver solicitudes", my_request_path, class: "btn btn-primary col-md-3", method: :get  %>
-        </div>
-      </div>
-    </div>
+
+
+<div class="main main-raised">
+    <div class="card card-nav-tabs">
+              <div class="header header-info">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <div class="row">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                    
+                            <li class="col-md-4 text-center">
+                              <%= button_to levels_path, class: "btn btn-primary", style:" margin-right: 100px;background-color: transparent;", method: :get do %> 
+                                <i class="material-icons">dashboard</i>Mis Módulos
+                              <% end %>
+                            </li>
+
+                            <li class="col-md-4 text-center">
+                              <%= button_to requests_path, class: "btn btn-primary", style:" margin-right: 100px;background-color: transparent;", method: :get do %>
+                                <i class="material-icons">dashboard</i>Módulos disponibles
+                              <% end %>
+                            </li>
+                            <li class="col-md-4 text-center">
+                              <%= button_to my_request_path, class: "btn btn-primary", style: "background-color: transparent;" , method: :get do %> 
+                                <i class="material-icons">dashboard</i>Ver solicitudes
+                              <% end %>
+                            </li>
+
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" >
+                      Presione en la barra superior, la acción que desea realizar.
+                      <hr>
+                      <div class="row">
+                        <h2>Información</h2>
+                        <ul style="text-align: left;">
+                          <li>
+                            <strong>Mis Módulos</strong> lo llevará a ver todos los módulos adquiridos por el Colegio
+                         </li>
+                          <li>
+                            <strong>Módulos Disponibles</strong> lo llevará a visualizar todos los módulos presentes en el sistema, dando la opción de si desea adquirir alguno mediante la solicitud de módulo.
+                          </li>
+                          <li>
+                            <strong>Ver Solicitudes</strong> lo llevará a ver el estado y detalle de las solicitudes generadas por su Colegio, además de poder editarlas y eliminarlas a gusto.
+                         </li>
+                       </ul>
+                   </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
           </div>
-        </div>
-      </div>
-  </div>
-</div>

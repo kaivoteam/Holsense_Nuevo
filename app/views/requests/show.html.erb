@@ -1,19 +1,105 @@
-<p id="notice"><%= notice %></p>
+<!-- Terminar barra de navegacion -->
 
-<p>
-  <strong>Comment:</strong>
-  <%= @request.comment %>
-</p>
+              <div class="collapse navbar-collapse" id="example-navbar-primary">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li>
+                      <% if current_user.nil? %>
+                        <%= link_to new_user_session_path, class: 'btn btn-primary' do %><i class="material-icons">account_circle</i> Gestor Interno<% end %>
+                      <% else %>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <%= image_tag current_user.avatar.url(:perfil), class: "img-circle" %>
+                                  <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <% if current_user.superadmin_role? %>
+                                    <li>
+                                      <%= link_to rails_admin.dashboard_path do %> Administrar <% end %>
+                                    </li>
+                                    <li class="divider"></li>
+                                  <% else %>
+                                    <li>
+                                      <%= link_to "Ver perfil", profile_path(current_user)%>
+                                    </li>
+                                    <li>
+                                      <%= link_to "Editar perfil", edit_user_registration_path(current_user.id) %>
+                                    </li>
+                                  <% end %>
+                                  <li>
+                                    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+                                  </li>
+                                </ul>
+                              </li> 
+                      <% end %>
+                    </li>
 
-<p>
-  <strong>Status:</strong>
-  <%= @request.status %>
-</p>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-<p>
-  <strong>Mail requester:</strong>
-  <%= @request.mail_requester %>
-</p>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+
+<div class="wrapper">
+  <div class="header header-filter"> <!-- style="background-image: url('bg2.jpeg');"-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="brandasd">
+            <h1>Visualizar Módulo</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="main main-raised">
+    <div class="section">
+      <div class="container">
+
+        <div class="text-right center-block">
+          <%= button_to 'Menu Principal',  dash_utp_path, class: "btn btn-primary",method: :get %>          
+        </div> 
+      </div>
+      <div class="row">
+
+        <div class="col-md-offset-2 col-md-8 ">
+
+        <% if notice%>
+          <div class="alert alert-success" style="opacity: 0.8;" id="notice">
+          <strong>Exitosa operación!</strong>  <%= notice %>
+        </div>
+        <% end %>
+
+		  <div class="input-group" style="display: inherit;">
+		    <span class="label label-primary">Módulo solicitado</span>
+		    <label autocomplete="off" class="form-control"><%= @request.section.name%> </label>
+		  </div>
+		  <p style="margin-bottom: 2cm;"></p>
+
+
+		  <div class="input-group" style="display: inherit;">
+		    <span class="label label-primary">Comentario sobre la solicitud </span>
+		    <label autocomplete="off" class="form-control"><%= @request.comment%> </label>
+		  </div>
+
+		  <p style="margin-bottom: 2cm;"></p>
+
+		  <div class="input-group" style="display: inherit;">
+		    <span class="label label-primary">Mail del responsable de la solicitud</span>
+		      <label autocomplete="off" class="form-control"><%= @request.mail_requester%> </label>
+		  </div>
+		  <p style="margin-bottom: 2cm;"></p>
+
+		  <div class="row actions text-center">
+          <%= button_to 'Ver solicitudes realizadas',  my_request_path, class: "btn btn-primary",method: :get %>
+		  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

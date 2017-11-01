@@ -54,10 +54,20 @@
     </div>
   </div>
 
-
   <div class="main main-raised">
     <div class="section">
-      <div class="container"></div>
+      <div class="container">
+
+        <% if notice%>
+        <div class="alert alert-success" style="opacity: 0.8;" id="notice">
+        <strong>Exitosa operación!</strong> <%= notice %>
+      </div>
+      <% end %>
+
+        <div class="text-right center-block">
+          <%= button_to 'Menu Principal',  dash_utp_path, class: "btn btn-primary",method: :get, style: "margin-top: 25px;" %>
+        </div>
+
 
   <table class="table">
     <thead>
@@ -65,8 +75,8 @@
             <th class="text-center">Número solicitud</th>
             <th> Estado </th>
             <th>Módulo solicitado</th>
-            <th> Comentario </th>
-            <th>Email responable</th>
+            <th style="width:300px; max-width: 300px;"> Comentario </th>
+            <th>Email del responsable</th>
             <th class="text-right"></th>
         </tr>
     </thead>
@@ -77,20 +87,24 @@
             <td class="text-right"><%= request.id %></td>
             <td><%= request.status %></td>
             <td><%= truncate(request.section.name, length: 30, separator: " ")%></td>
-            <td><%= request.comment %></td>
+            <td tyle="width:300px; max-width: 300px;"><%= request.comment %></td>
             <td><%= request.mail_requester %></td>
             <td  class="text-right"> 
+                <div style = "display: inline-block;">
                 <%= button_to request_path(request), class: "btn btn-info btn-simple btn-xs", method: :get, data: {toggle: "tooltip",placement: "bottom", title: "Ver Solicitud"} do  %>
                   <i class="fa fa-eye"></i>
                 <% end -%>
-
+              </div>
+              <div style= "display: inline-block;">
                 <%= button_to edit_request_path(request), class: "btn btn-success btn-simple btn-xs", method: :get, data: {toggle: "tooltip",placement: "bottom", title: "Editar Solicitud"} do  %>
                   <i class="fa fa-edit"></i>
                 <% end -%>
-
+              </div>
+              <div style = "display: inline-block;">
                 <%= button_to request, class: "btn btn-danger btn-simple btn-xs",  method: :delete, data: { confirm: 'Estás seguro?', toggle: "tooltip",placement: "bottom", title: "Eliminar Solicitud"} do  %>
                   <i class="fa fa-times"></i>
                 <% end -%>
+              </div>
             </td>
           </tr>
         <% end %> 
@@ -104,4 +118,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

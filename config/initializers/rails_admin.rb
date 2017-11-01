@@ -230,13 +230,13 @@ RailsAdmin.config do |config|
       label 'Comentario' # Change the label of this field
     end
     field :section do
-      label 'Modulo' # Change the label of this field
+      label 'Módulo' # Change the label of this field
     end
     field :user do
       label 'Usuario' # Change the label of this field
     end
     field :mail_requester do
-      label 'Email del responsable adasdas' # Change the label of this field
+      label 'Email del responsable' # Change the label of this field
     end
 
     #field :review_request do

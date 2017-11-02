@@ -47,7 +47,7 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    show_in_app
+    #show_in_app  ( Ver en la app deshabilitada!)
 
     #Agregar funcion review_request
     review_request
@@ -203,10 +203,14 @@ RailsAdmin.config do |config|
     end
     field :subject do
       label 'Asignatura' # Change the label of this field
+      inline_add false
+      inline_edit false
     end
 
     field :level do
       label 'Curso' # Change the label of this field
+      inline_add false
+      inline_edit false
     end
     object_label_method do
       :custom_label_method
@@ -231,23 +235,17 @@ RailsAdmin.config do |config|
     end
     field :section do
       label 'Módulo' # Change the label of this field
+      inline_add false
+      inline_edit false
     end
     field :user do
       label 'Usuario' # Change the label of this field
+      inline_add false
+      inline_edit false
     end
     field :mail_requester do
       label 'Email del responsable' # Change the label of this field
     end
-
-    #field :review_request do
-      #label 'Acciones'
-      #formatted_value{ bindings[:object].call_some_method }
-    #end
-    
-    #field :reject_request do
-      #label 'Rechazar'
-    #end
-
     object_label_method do
       :custom_label_method
     end
@@ -257,10 +255,6 @@ RailsAdmin.config do |config|
     def custom_label_method
       "#{self.id}"
     end
-
-    #def call_some_method
-      #Review_request
-    #end
   end
 
   config.model 'Image' do
@@ -286,7 +280,8 @@ RailsAdmin.config do |config|
      # delete_method :delete_content
     end
     field :sections do
-      label 'Módulos asociadas' # Change the label of this field
+      label 'Módulos asociadas' # Change the label of this field      
+      inline_add false
     end
     object_label_method do
       :custom_label_method

@@ -122,7 +122,7 @@ es:
         title: "Rechazar solicitud"
         breadcrumb: 'Rechazar'
     form:
-      cancel: "Cancelar"
+      cancel: "Volver"
       basic_info: "Información básica"
       required: "Requerido"
       optional: "Opcional"
@@ -130,7 +130,7 @@ es:
       char_length_up_to: "longitud de hasta"
       char_length_of: "longitud de"
       save: "Guardar"
-      save_and_add_another: "Guardar y añadir otro"
+      save_and_add_another: "Guardar"
       save_and_edit: "Guardar y editar"
       all_of_the_following_related_items_will_be_deleted: "? Los siguientes elementos relacionados pueden ser eliminados o quedar huérfanos:"
       are_you_sure_you_want_to_delete_the_object: "¿Está seguro de que quiere eliminar este %{model_name}"

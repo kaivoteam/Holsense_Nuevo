@@ -313,7 +313,7 @@ es:
       signed_out: Sesión finalizada.
     shared:
       links:
-        back: Atrás
+        back: Volver
         didn_t_receive_confirmation_instructions: "¿No ha recibido las instrucciones de confirmación?"
         didn_t_receive_unlock_instructions: "¿No ha recibido instrucciones para desbloquear?"
         forgot_your_password: "¿Ha olvidado su contraseña?"

@@ -54,19 +54,19 @@
       </div>
     </div>
   </div>
-  <div class="main main-raised">
-    <div class="card card-nav-tabs">
+  <div class="main main-raised ">
+    <div class="card card-nav-tabs ">
               <div class="header header-info">
                 <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
 
                 <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                     <div class="row">
-                      <div class="col-md-10">
+                      <div class="col-md-10 sidebar-wrapper">
                         <ul class="nav nav-tabs" data-tabs="tabs">
 
                             <% @results.each do |level, value| %>
-                              <li class="col-md-3 text-center">
+                              <li class="col-md-3 text-center sidebar-wrapper">
                                 <a href="#<%=level.id%>" data-toggle="tab">
                                   <i class="material-icons">dashboard</i>
                                   <%=level.name%>

@@ -203,13 +203,13 @@ RailsAdmin.config do |config|
     end
     field :subject do
       label 'Asignatura' # Change the label of this field
-      inline_add false
+      #inline_add false
       inline_edit false
     end
 
     field :level do
       label 'Curso' # Change the label of this field
-      inline_add false
+      #inline_add false
       inline_edit false
     end
     object_label_method do
@@ -281,7 +281,6 @@ RailsAdmin.config do |config|
     end
     field :sections do
       label 'Módulos asociadas' # Change the label of this field      
-      inline_add false
     end
     object_label_method do
       :custom_label_method

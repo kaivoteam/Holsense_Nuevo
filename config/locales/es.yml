@@ -6,6 +6,7 @@ es:
       school: "Colegio"
       subject: "Asignatura"
       section: "Módulo"
+      request: "Solicitud"
       image: "Contenido"
     attributes:
       user:    
@@ -296,7 +297,7 @@ es:
         title: Editar %{resource}
         unhappy: Infeliz
         update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
+        we_need_your_current_password_to_confirm_your_changes: Necesitamos su contraseña actual para confirmar los cambios
       new:
         sign_up: Registrarse
       signed_up: Bienvenido. Tu cuenta fue creada.

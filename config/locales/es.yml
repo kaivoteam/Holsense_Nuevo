@@ -331,6 +331,7 @@ es:
     main:
       review_request:
         create_user: Se ha creado un usuario con nombre '%{name}' y contraseña inicial '%{pass}'. Indique al coordinador UTP '%{utp}' esta nueva cuenta de acceso.
+        
 
 
           

@@ -49,6 +49,7 @@ es:
       noaction: "No se llevó a cabo ninguna acción"
       model_not_found: "El componente '%{model}' no se pudo encontrar"
       object_not_found: "%{model} con id '%{id}' no se pudo encontrar"
+      #reject_request: "Solicitud ha sido rechazada"
     table_headers:
       model_name: "Componente"
       last_used: "Última conexión"

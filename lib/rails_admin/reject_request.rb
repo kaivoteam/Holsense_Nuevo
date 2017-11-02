@@ -13,7 +13,7 @@ module RailsAdmin
           true
         end
         register_instance_option :link_icon do
-          'icon-remove-sign'
+          'icon-thumbs-down'
         end
         # You may or may not want pjax for your action
         register_instance_option :pjax? do

@@ -128,12 +128,12 @@ def hacer(opcion,cantidad=0,texto_proyectar=""):
         global w,h
         if zoom <= 0 or tamanno_actual <= 20: #tamano minimo permitido
             limite = True
-            texto_proyectar = "zoom min"
+            texto_proyectar = "zoom minimo"
             #remueve el zoom aplicado
             zoom+=cantidad
         elif zoom>=2.3: #tamanno maximo permitido
             limite=True
-            texto_proyectar = "zoom max"
+            texto_proyectar = "zoom maximo"
             #remueve el zoom aplicado
             zoom-=cantidad
 
@@ -504,8 +504,7 @@ def colocar_texto(caras,texto,limite=False):
             *texto: Texto a colocar en la imagen
             *limite: si el texto es de advertencia
     """  
-    if limite:
-        texto += " alcanzado" 
+
     for cara in caras:
         if limite:
             tamanno = 50

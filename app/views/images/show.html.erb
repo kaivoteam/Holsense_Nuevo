@@ -73,6 +73,9 @@
 					  <strong>Descripción:</strong>
 					  <%= @image.description %>
 					</p>
+
+          <%= image_tag @image.content.url(:thumb), class: "img-circle img-raised img-responsive center-block" %>
+
                   </div>
                 </div>
               </div>

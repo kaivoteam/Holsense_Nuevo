@@ -72,7 +72,7 @@
   <table class="table">
     <thead>
         <tr>
-            <th class="text-center">Número solicitud</th>
+            <th class="text-center" style="max-width: 100px;">Número solicitud</th>
             <th> Estado </th>
             <th>Módulo solicitado</th>
             <th style="width:300px; max-width: 300px;"> Comentario </th>
@@ -84,10 +84,10 @@
 
         <% @requests.each do |request| %>
           <tr>
-            <td class="text-right"><%= request.id %></td>
+            <td class="text-right" style="max-width: 100px;"><%= request.id %></td>
             <td><%= request.status %></td>
             <td><%= truncate(request.section.name, length: 30, separator: " ")%></td>
-            <td tyle="width:300px; max-width: 300px;"><%= request.comment %></td>
+            <td style="width:300px; max-width: 300px;"><%= request.comment %></td>
             <td><%= request.mail_requester %></td>
             <td  class="text-right"> 
                 <div style = "display: inline-block;">

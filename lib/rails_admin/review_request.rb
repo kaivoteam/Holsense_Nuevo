@@ -25,7 +25,7 @@ module RailsAdmin
             school = @object.user.school.name
             school_id = @object.user.school.id
             posible_user = subject + " " + school
-            posible_user = posible_user.downcase!.gsub!(' ','_')
+            posible_user = posible_user.parameterize.underscore
             user = User.find_by(nickname: posible_user)
             school = school.downcase!.delete(' ')
 

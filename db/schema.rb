@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20171029234113) do
     t.string "content_content_type"
     t.integer "content_file_size"
     t.datetime "content_updated_at"
-    t.integer "Images_Sections_id"
-    t.index ["Images_Sections_id"], name: "index_images_on_Images_Sections_id"
   end
 
   create_table "images_sections", id: false, force: :cascade do |t|
@@ -77,8 +75,6 @@ ActiveRecord::Schema.define(version: 20171029234113) do
     t.datetime "updated_at", null: false
     t.integer "level_id"
     t.integer "subject_id"
-    t.integer "Images_Sections_id"
-    t.index ["Images_Sections_id"], name: "index_sections_on_Images_Sections_id"
     t.index ["level_id"], name: "index_sections_on_level_id"
     t.index ["subject_id"], name: "index_sections_on_subject_id"
   end
